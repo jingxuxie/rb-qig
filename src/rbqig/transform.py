@@ -14,12 +14,14 @@ METHODS = [
     "rbqig_b2",
     "rbqig_b4",
     "rbqig_b4_no_combo",
+    "rbqig_b4_placeholder",
     "rbqig_b6",
 ]
 
 
 def _budget_for(method: str) -> float:
     method = method.removesuffix("_no_combo")
+    method = method.removesuffix("_placeholder")
     if method == "rbqig_b2":
         return 2.0
     if method == "rbqig_b4":
@@ -136,6 +138,10 @@ def _qi_change(qi: dict[str, Any], replacement: str, risk_after: float, kind: st
     }
 
 
+def _placeholder_replacement(qi: dict[str, Any]) -> str:
+    return f"[{str(qi.get('category', 'other')).upper()}]"
+
+
 def transform_record(record: dict[str, Any], method: str) -> dict[str, Any]:
     if method not in METHODS:
         raise ValueError(f"Unknown method {method}. Expected one of {METHODS}.")
@@ -173,6 +179,7 @@ def transform_record(record: dict[str, Any], method: str) -> dict[str, Any]:
 
     if method.startswith("rbqig_"):
         include_pairwise = not method.endswith("_no_combo")
+        placeholder_mode = method.endswith("_placeholder")
         states, doc_risk_before, doc_risk_after = _choose_budgeted_levels(
             record, _budget_for(method), include_pairwise=include_pairwise
         )
@@ -182,14 +189,14 @@ def transform_record(record: dict[str, Any], method: str) -> dict[str, Any]:
                 continue
             qi = state["qi"]
             level_spec = qi["levels"][state["level"] - 1]
-            replacement = level_spec["replacement"]
+            replacement = _placeholder_replacement(qi) if placeholder_mode else level_spec["replacement"]
             replacements.append((qi["span"], replacement))
             change_log.append(
                 _qi_change(
                     qi,
                     replacement,
                     float(level_spec["privacy_risk_after"]),
-                    f"rbqig_{level_spec['kind']}",
+                    f"rbqig_placeholder_{level_spec['kind']}" if placeholder_mode else f"rbqig_{level_spec['kind']}",
                 )
             )
         transformed = _replace_all(transformed, replacements)

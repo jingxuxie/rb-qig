@@ -1,0 +1,5 @@
+method,n_records,qi_specificity_score,utility_weighted_specificity,qi_exact_rate,qi_generalized_rate,qi_placeholder_rate,qi_dropped_rate
+direct,30,0.997454,0.997304,0.997222,0.0,0.000926,0.001852
+blanket_qi,30,0.25,0.25,0.0,0.0,1.0,0.0
+rbqig_b4,30,0.311917,0.311674,0.0,0.154793,0.845207,0.0
+rbqig_b4_placeholder,30,0.25,0.25,0.0,0.0,1.0,0.0

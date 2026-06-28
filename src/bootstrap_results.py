@@ -20,7 +20,8 @@ METHOD_ORDER = {
     "rbqig_b2": 4,
     "rbqig_b4": 5,
     "rbqig_b4_no_combo": 6,
-    "rbqig_b6": 7,
+    "rbqig_b4_placeholder": 7,
+    "rbqig_b6": 8,
 }
 
 

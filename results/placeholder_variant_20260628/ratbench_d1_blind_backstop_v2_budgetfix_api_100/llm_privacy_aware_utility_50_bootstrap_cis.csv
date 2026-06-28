@@ -1,0 +1,13 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,direct,privacy_aware_label_preservation,1.0,1.0,1.0,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,direct,task_content_preservation,0.9158,0.9038,0.9274,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,direct,privacy_aware_utility,0.86,0.812,0.9,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,direct,private_loss_penalty,0.02,0.0,0.06,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,blanket_qi,privacy_aware_label_preservation,1.0,1.0,1.0,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,blanket_qi,task_content_preservation,0.8132,0.7944,0.8312,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,blanket_qi,privacy_aware_utility,0.88,0.848,0.912,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,blanket_qi,private_loss_penalty,0.02,0.0,0.06,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,rbqig_b4_placeholder,privacy_aware_label_preservation,1.0,1.0,1.0,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,rbqig_b4_placeholder,task_content_preservation,0.8026,0.7832,0.8212,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,rbqig_b4_placeholder,privacy_aware_utility,0.848,0.816,0.88,50,5000,20260628
+ratbench_placeholder_variant_20260628_privacy_aware_utility_50,rbqig_b4_placeholder,private_loss_penalty,0.0,0.0,0.0,50,5000,20260628

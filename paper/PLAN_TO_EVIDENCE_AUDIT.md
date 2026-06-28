@@ -18,7 +18,7 @@ Current readiness:
 | Target | Readiness | Rationale |
 | --- | --- | --- |
 | Workshop short paper | Strong | 5-page manuscript, generated tables, bootstrap intervals, claim audit, qualitative appendix, and reviewer stress test are in place. |
-| High-impact top-tier paper | Promising but incomplete | Now has a bounded TAB legal-domain diagnostic, a pattern-only Presidio-style baseline, a negative TAB legal-utility screen, a negative legal-role replacement check, a no-combo ablation, a 50-record GPT-5.5 attacker check, and a negative 50-record privacy-aware utility screen, but still needs stronger utility-preserving rewriting before claims can scale beyond a pilot. |
+| High-impact top-tier paper | Promising but incomplete | Now has a bounded TAB legal-domain diagnostic, a pattern-only Presidio-style baseline, a negative TAB legal-utility screen, a negative legal-role replacement check, a no-combo ablation, a 50-record GPT-5.5 attacker check, a negative 50-record privacy-aware utility screen, and a placeholder fallback diagnostic, but still needs stronger utility-preserving rewriting before claims can scale beyond a pilot. |
 
 ## Research Questions
 
@@ -27,7 +27,7 @@ Current readiness:
 | RQ1: residual risk after direct PII removal | Supported | RAT-Bench direct redaction leaves 78.0% [73.4, 82.5] target-aware LLM-attacker risk and 78.1% [73.3, 82.9] blind-backstop LLM-attacker risk. | Make this a headline motivation. |
 | RQ2: risk-budgeted transformation | Supported relative to direct and naive LLM redaction; not superior to blanket privacy | RB-QIG balanced reduces target-aware LLM risk to 5.7% [3.2, 8.8] and budget-fixed blind-backstop LLM risk to 6.4% [3.9, 9.1]. It is statistically tied with blanket under LLM attackers. | Claim large risk reduction, not privacy dominance over blanket QI. |
 | RQ3: failure modes | Supported | Failure artifacts identify gendered language, marital/bereavement cues, education mentions, citizenship phrasing, race/ethnicity variants, employment context, and location context. | Use as evidence that inferability is broader than span recall. |
-| RQ4: utility preservation | Mixed | Synthetic utility facts support a large RB-QIG edge over blanket: +28.3 points [25.2, 31.6]. Synthetic LLM utility gives only +2.6 [0.6, 4.8]. Budget-fixed blind public semantic utility is tied with blanket: -0.4 [-4.2, 3.4]. A 50-record privacy-aware public utility screen is negative: -6.4 [-10.0, -2.8]. Safe generalization removes literal instruction strings but remains negative: -5.6 [-9.2, -1.6] versus blanket. TAB legal-task utility is tied in the generic screen: balanced 0.0 [-10.0, 10.0], utility-budget 0.0 [-8.0, 8.0]. A legal-role TAB variant is worse than blanket on legal-task utility: -6.0 [-14.0, 2.0]. | Scope utility wins to controlled synthetic settings; present public utility as a caveat. |
+| RQ4: utility preservation | Mixed | Synthetic utility facts support a large RB-QIG edge over blanket: +28.3 points [25.2, 31.6]. Synthetic LLM utility gives only +2.6 [0.6, 4.8]. Budget-fixed blind public semantic utility is tied with blanket: -0.4 [-4.2, 3.4]. A 50-record privacy-aware public utility screen is negative: -6.4 [-10.0, -2.8]. Safe generalization removes literal instruction strings but remains negative: -5.6 [-9.2, -1.6] versus blanket. A budgeted placeholder fallback improves over current RB-QIG (+3.2 points privacy-aware utility, CI [-0.8, 7.2]) but remains tied/below blanket (-3.2 points, CI [-7.2, 0.8]) and loses specificity. TAB legal-task utility is tied in the generic screen: balanced 0.0 [-10.0, 10.0], utility-budget 0.0 [-8.0, 8.0]. A legal-role TAB variant is worse than blanket on legal-task utility: -6.0 [-14.0, 2.0]. | Scope utility wins to controlled synthetic settings; present public utility as a caveat. |
 
 ## Planned Contributions
 
@@ -95,7 +95,7 @@ Current readiness:
 | Claim audit | `paper/CLAIM_AUDIT.md`, currently 15/15 claim groups matched. |
 | Reviewer stress test | `paper/REVIEWER_STRESS_TEST.md`. |
 | Reproducibility commands | `README.md` and `RESEARCH_STATUS.md`. |
-| API budget tracking | `RESEARCH_STATUS.md`, currently about $5.81 fresh-equivalent cached cost. |
+| API budget tracking | `RESEARCH_STATUS.md`, currently about $5.86 fresh-equivalent cached cost. |
 
 ## Claim Boundary
 
@@ -126,7 +126,7 @@ The next experiment should only be run if it can be bounded and cheap.
 
 | Priority | Action | Why | Stop rule |
 | --- | --- | --- | --- |
-| 1 | Improve the rewrite/generalization policy before running more public utility judges. | The 50-record privacy-aware utility screen and safe-generalization v2 diagnostic show the public utility gap is not just evaluator framing. | Do no more utility-judge spending until the transformed text visibly preserves non-private task content better. |
+| 1 | Develop context-aware fluent rewriting beyond placeholders. | The placeholder diagnostic shows surface form matters, but placeholder fallback mostly collapses to blanket QI and does not establish a public utility win. | Do no more utility-judge spending until a no-API text audit shows better preservation than typed placeholders. |
 | 2 | Run a tiny multi-model attacker agreement check on an existing subset. | Tests whether the attacker conclusion depends on one model family after the GPT-5.5 caveat. | Keep under a small fixed API cap and reuse cached transformed outputs. |
 | 3 | Tighten the 5-page manuscript after final template choice. | The evidence is stronger than the current space-limited narrative can fully express. | Preserve the page limit and do not broaden claims. |
 

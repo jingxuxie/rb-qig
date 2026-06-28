@@ -135,7 +135,16 @@ def aggregate(rows: list[dict[str, Any]], usage_rows: list[dict[str, Any]]) -> l
     for row in usage_rows:
         usage_by_method[row["method"]].append(row)
 
-    order = {"none": 0, "direct": 1, "blanket_qi": 2, "rbqig_b2": 3, "rbqig_b4": 4, "rbqig_b6": 5}
+    order = {
+        "none": 0,
+        "direct": 1,
+        "blanket_qi": 2,
+        "rbqig_b2": 3,
+        "rbqig_b4": 4,
+        "rbqig_b4_no_combo": 5,
+        "rbqig_b4_placeholder": 6,
+        "rbqig_b6": 7,
+    }
     out = []
     for method, method_rows in sorted(by_method.items(), key=lambda item: order.get(item[0], 99)):
         usage = usage_by_method.get(method, [])

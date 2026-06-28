@@ -178,7 +178,8 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "rbqig_b2": 4,
         "rbqig_b4": 5,
         "rbqig_b4_no_combo": 6,
-        "rbqig_b6": 7,
+        "rbqig_b4_placeholder": 7,
+        "rbqig_b6": 8,
     }
     metrics = [
         "qi_specificity_score",

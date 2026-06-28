@@ -17,6 +17,7 @@ METHODS = [
     "rbqig_b2",
     "rbqig_b4",
     "rbqig_b4_no_combo",
+    "rbqig_b4_placeholder",
     "rbqig_b6",
 ]
 

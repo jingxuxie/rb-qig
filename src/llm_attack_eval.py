@@ -247,7 +247,8 @@ def aggregate(rows: list[dict[str, Any]], usage_rows: list[dict[str, Any]]) -> l
         "rbqig_b2": 4,
         "rbqig_b4": 5,
         "rbqig_b4_no_combo": 6,
-        "rbqig_b6": 7,
+        "rbqig_b4_placeholder": 7,
+        "rbqig_b6": 8,
     }
     out = []
     for method, method_rows in sorted(by_method.items(), key=lambda item: order.get(item[0], 99)):

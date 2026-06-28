@@ -34,6 +34,7 @@ Last updated: 2026-06-28
 - Improved blind-backstop v2 that adds separated-status, grade-level, gendered-term, and race/ethnicity lexical coverage.
 - Budget-enforcing RB-QIG optimizer fix that scans forward to the next risk-reducing candidate level.
 - No-API Priority 0 follow-up: pairwise no-combo ablation and deterministic public budget frontier.
+- Budgeted placeholder rewrite diagnostic (`rbqig_b4_placeholder`) for isolating surface rewrite artifacts from the risk-budgeting policy.
 - Paper table generator for Markdown and LaTeX result tables.
 - Qualitative appendix generator for positive examples, target-aware public comparisons, and blind public failure modes.
 - Claim audit generator that ties headline paper claims to local CSV and report artifacts.
@@ -304,6 +305,7 @@ Interpretation:
 - A value-free safe-label smoke did not improve public utility or privacy materially, so it is a negative diagnostic rather than a main paper point.
 - A 50-record privacy-aware utility screen on the paper-facing budget-fixed outputs also does not rescue the public utility claim: RB-QIG balanced scores 81.6% [78.8, 84.4] versus 88.0% [84.8, 91.2] for blanket QI, a paired -6.4 points [-10.0, -2.8].
 - A safe-generalization v2 diagnostic removes literal extractor instruction strings from RB-QIG text, but remains negative: deterministic risk rises from 5.4% to 6.7%, while privacy-aware utility is 82.4% [79.6, 85.2] versus 88.0% [84.8, 91.2] for blanket QI.
+- A budgeted placeholder rewrite diagnostic improves the 50-record privacy-aware utility screen relative to current RB-QIG, 84.8% [81.6, 88.0] versus 81.6% [78.8, 84.4], but remains tied/below blanket QI at 88.0% [84.8, 91.2] and largely gives up the QI-specificity advantage.
 
 ## Priority 0 No-API Follow-up
 
@@ -535,10 +537,10 @@ Cached API usage currently present in this workspace:
 | Blind QI extractor | 30 | 27,785 | $0.021809 |
 | Blind RAT-Bench QI extractor | 100 | 252,021 | $0.134941 |
 | LLM utility judge | 864 | 2,015,506 | $0.532039 |
-| LLM privacy-aware utility judge | 179 | 625,211 | $0.150863 |
+| LLM privacy-aware utility judge | 229 | 800,190 | $0.193294 |
 | LLM legal utility judge | 50 | 125,308 | $0.039890 |
 | GPT-5.5 LLM attacker | 164 | 347,722 | $3.914285 |
-| Total | 2,796 | 5,982,254 | $5.813253 |
+| Total | 2,846 | 6,157,233 | $5.855684 |
 
 ## Blind Synthetic Extractor Check
 
@@ -714,7 +716,7 @@ Artifacts:
 - `paper/PLAN_TO_EVIDENCE_AUDIT.md`
 - `paper/REVIEWER_STRESS_TEST.md`
 
-1. Improve task-realistic utility evaluation beyond broad labels; public and TAB utility remain the weakest evidence.
+1. Develop context-aware fluent rewriting beyond typed placeholders; the placeholder diagnostic shows surface form matters, but placeholder fallback largely collapses to blanket QI.
 2. Run a tiny multi-model attacker agreement check only under a fixed API cap.
 3. Tighten the 5-page manuscript for the target workshop style once the final template is chosen.
 4. Improve blind extractor coverage and utility-aware generalization before making any deployment-style claim.
