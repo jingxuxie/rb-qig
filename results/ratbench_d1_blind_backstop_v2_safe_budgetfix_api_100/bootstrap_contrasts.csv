@@ -1,0 +1,17 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,direct_identifier_leakage,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,record_compromise_rate,0.39,0.3,0.49,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,exact_attribute_leakage,0.902833,0.864996,0.936833,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,coarse_attribute_leakage,0.848667,0.800163,0.893167,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,risk_weighted_leakage,0.87629,0.834277,0.913241,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,label_preservation,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,utility_fact_preservation,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,direct_minus_rbqig_b4,token_change_rate,-0.092873,-0.101057,-0.084516,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,direct_identifier_leakage,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,record_compromise_rate,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,exact_attribute_leakage,0.01,0.0,0.03,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,coarse_attribute_leakage,0.064167,0.030833,0.103333,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,risk_weighted_leakage,0.035648,0.014622,0.064288,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,label_preservation,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,utility_fact_preservation,0.0,0.0,0.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100,rbqig_b4_minus_blanket_qi,token_change_rate,-0.00605,-0.007123,-0.005051,100,5000,20260628

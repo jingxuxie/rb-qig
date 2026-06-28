@@ -37,7 +37,7 @@ Last updated: 2026-06-28
 - Paper table generator for Markdown and LaTeX result tables.
 - Qualitative appendix generator for positive examples, target-aware public comparisons, and blind public failure modes.
 - Claim audit generator that ties headline paper claims to local CSV and report artifacts.
-- Compiled 4-page LaTeX manuscript draft with bibliography and reproducibility appendix.
+- Compiled 5-page LaTeX manuscript draft with bibliography and reproducibility appendix.
 
 ## Current Synthetic Control Result
 
@@ -302,7 +302,8 @@ Interpretation:
 - Public semantic utility remains a caveat: RB-QIG balanced is 62.2% [58.8, 65.2] versus 62.6% [59.2, 66.0] for blanket QI, with paired RB-QIG minus blanket -0.4 points [-4.2, +3.4].
 - A no-API annotation-specificity diagnostic gives a narrow public utility signal: RB-QIG balanced has +6.8 specificity points [4.7, 9.2] over blanket QI on blind RAT-Bench and +6.2 points [5.5, 6.9] on TAB. This measures retained typed/generalized QI semantics, not task accuracy.
 - A value-free safe-label smoke did not improve public utility or privacy materially, so it is a negative diagnostic rather than a main paper point.
-- A 40-record privacy-aware utility screen also does not rescue the public utility claim: RB-QIG balanced scores 83.0% [78.5, 87.0] versus 87.5% [83.5, 91.5] for blanket QI, a paired -4.5 points [-9.0, 0.0].
+- A 50-record privacy-aware utility screen on the paper-facing budget-fixed outputs also does not rescue the public utility claim: RB-QIG balanced scores 81.6% [78.8, 84.4] versus 88.0% [84.8, 91.2] for blanket QI, a paired -6.4 points [-10.0, -2.8].
+- A safe-generalization v2 diagnostic removes literal extractor instruction strings from RB-QIG text, but remains negative: deterministic risk rises from 5.4% to 6.7%, while privacy-aware utility is 82.4% [79.6, 85.2] versus 88.0% [84.8, 91.2] for blanket QI.
 
 ## Priority 0 No-API Follow-up
 
@@ -534,10 +535,10 @@ Cached API usage currently present in this workspace:
 | Blind QI extractor | 30 | 27,785 | $0.021809 |
 | Blind RAT-Bench QI extractor | 100 | 252,021 | $0.134941 |
 | LLM utility judge | 864 | 2,015,506 | $0.532039 |
-| LLM privacy-aware utility judge | 120 | 419,418 | $0.100685 |
+| LLM privacy-aware utility judge | 179 | 625,211 | $0.150863 |
 | LLM legal utility judge | 50 | 125,308 | $0.039890 |
 | GPT-5.5 LLM attacker | 164 | 347,722 | $3.914285 |
-| Total | 2,737 | 5,776,461 | $5.763078 |
+| Total | 2,796 | 5,982,254 | $5.813253 |
 
 ## Blind Synthetic Extractor Check
 
@@ -715,6 +716,6 @@ Artifacts:
 
 1. Improve task-realistic utility evaluation beyond broad labels; public and TAB utility remain the weakest evidence.
 2. Run a tiny multi-model attacker agreement check only under a fixed API cap.
-3. Tighten the 4-page manuscript for the target workshop style once the final template is chosen.
+3. Tighten the 5-page manuscript for the target workshop style once the final template is chosen.
 4. Improve blind extractor coverage and utility-aware generalization before making any deployment-style claim.
 5. Consider scaling RAT-Bench beyond 100 rows only if the paper needs tighter confidence intervals; the 40-record budget-variant smoke did not justify a full public budget sweep.

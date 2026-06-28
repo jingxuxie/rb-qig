@@ -13,7 +13,7 @@ The current evidence supports these claims:
 5. Stronger-attacker checks are harsher on privacy methods but preserve the direct-redaction failure story. A 20-record target-aware `gpt-5.4-mini` smoke gives direct 77.3%, naive LLM sanitizer 40.2%, RB-QIG balanced 18.0%, and blanket QI 16.0% risk-weighted leakage. A 50-record blind-backstop GPT-5.5 check gives direct 87.8% [81.7, 93.1], RB-QIG balanced 31.9% [24.7, 39.5], and blanket QI 29.7% [22.5, 37.6]; direct minus RB-QIG is +55.9 points [45.0, 65.7], while RB-QIG minus blanket is statistically tied at +2.2 points [-4.7, 9.0].
 6. On controlled synthetic records, RB-QIG exposes a tunable privacy-utility frontier. RB-QIG balanced leaves 23.6% risk-weighted leakage while preserving 71.7% utility facts; blanket QI redaction removes leakage but preserves only 43.3% utility facts.
 7. A cached LLM utility judge gives a more forgiving semantic view of synthetic utility, but shows only a modest RB-QIG balanced edge over blanket QI: 79.4% vs 76.8%, paired +2.6 points [0.6, 4.8].
-8. Public RAT-Bench utility judging is a caveat, not a win: on budget-fixed blind-backstop public outputs, RB-QIG balanced and blanket QI are statistically tied on semantic utility, 62.2% versus 62.6%, paired -0.4 points [-4.2, 3.4]. A 40-record privacy-aware utility screen is also negative for RB-QIG versus blanket: -4.5 points [-9.0, 0.0].
+8. Public RAT-Bench utility judging is a caveat, not a win: on budget-fixed blind-backstop public outputs, RB-QIG balanced and blanket QI are statistically tied on semantic utility, 62.2% versus 62.6%, paired -0.4 points [-4.2, 3.4]. A 50-record privacy-aware utility screen is negative for RB-QIG versus blanket: -6.4 points [-10.0, -2.8]. A safe-generalization v2 diagnostic removes literal instruction strings but still trails blanket by -5.6 points [-9.2, -1.6].
 9. A no-API annotation-derived specificity diagnostic gives a narrow public utility signal: RB-QIG balanced retains more typed/generalized QI semantics than blanket placeholders by +6.8 points [4.7, 9.2] on blind RAT-Bench and +6.2 points [5.5, 6.9] on TAB.
 10. A blind public RAT-Bench diagnostic confirms that deployment-style extraction is the main open problem but also gives a cheap improvement path: an improved generic backstop raises blind span coverage from 72.8% to 99.6%; budget-fixed backstopped blind RB-QIG balanced reduces deterministic risk-weighted leakage from direct redaction by 88.9 points [85.0, 92.5]. Under an LLM attacker, budget-fixed backstopped blind RB-QIG balanced reduces risk-weighted leakage from 78.1% [73.3, 82.9] to 6.4% [3.9, 9.1] and is statistically tied with blanket QI.
 11. A no-API public deterministic budget frontier supports the budget knob as an interpretable control: on blind RAT-Bench, budgets 2/4/6 give 4.4%/5.4%/7.2% risk-weighted leakage and 30.1%/33.2%/36.4% QI specificity; on TAB, budgets 2/4/6 give 7.8%/12.3%/20.4% leakage and 28.1%/31.2%/34.3% specificity.
@@ -91,6 +91,11 @@ Key intervals use a nonparametric paired bootstrap over record IDs with 5,000 re
 | Blind RAT-Bench LLM utility RB-QIG balanced semantic utility | 62.2% | [58.8%, 65.2%] |
 | Blind RAT-Bench LLM utility RB-QIG minus blanket semantic utility | -0.4 pts | [-4.2, +3.4] |
 | Blind RAT-Bench LLM utility RB-QIG minus blanket fact preservation | +1.7 pts | [-3.4, +6.6] |
+| Blind RAT-Bench privacy-aware utility blanket QI | 88.0% | [84.8%, 91.2%] |
+| Blind RAT-Bench privacy-aware utility RB-QIG balanced | 81.6% | [78.8%, 84.4%] |
+| Blind RAT-Bench privacy-aware utility RB-QIG minus blanket | -6.4 pts | [-10.0, -2.8] |
+| Blind RAT-Bench safe-v2 privacy-aware utility RB-QIG balanced | 82.4% | [79.6%, 85.2%] |
+| Blind RAT-Bench safe-v2 privacy-aware utility RB-QIG minus blanket | -5.6 pts | [-9.2, -1.6] |
 | Blind synthetic RB-QIG balanced risk-weighted leak | 5.2% | [1.7%, 9.7%] |
 | Blind synthetic RB-QIG balanced utility facts | 43.3% | [35.0%, 51.7%] |
 | Blind synthetic RB-QIG balanced minus blanket utility facts | +7.2 pts | [+3.3, +11.7] |
@@ -220,7 +225,8 @@ Interpret this as a public utility caveat. Both privacy methods lose substantial
 - Blind RAT-Bench LLM utility judge metrics: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_utility_metrics.csv`
 - Blind RAT-Bench LLM utility bootstrap report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_utility_bootstrap_report.md`
 - Blind RAT-Bench budget-fix report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/budgetfix_report.md`
-- Blind RAT-Bench privacy-aware utility screen: `results/ratbench_d1_blind_backstop_v2_api_100/privacy_aware_utility_40_report.md`
+- Blind RAT-Bench privacy-aware utility screen: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/privacy_aware_utility_50_report.md`
+- Blind RAT-Bench safe-generalization v2 diagnostic: `results/ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100/safe_generalization_v2_report.md`
 - Blind RAT-Bench budget-variant smoke report: `results/ratbench_d1_blind_backstop_api_100/budget_variant_smoke_report.md`
 - Priority 0 follow-up report: `results/followup_priority0_20260628/report.md`
 - Priority 0 blind RAT-Bench deterministic metrics: `results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/metrics.csv`
