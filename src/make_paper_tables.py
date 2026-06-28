@@ -9,7 +9,16 @@ from rbqig.io_utils import ensure_parent
 from rbqig.plots import LABELS
 
 
-METHODS = ["none", "direct", "llm_direct", "blanket_qi", "rbqig_b2", "rbqig_b4", "rbqig_b6"]
+METHODS = [
+    "none",
+    "direct",
+    "llm_direct",
+    "blanket_qi",
+    "rbqig_b2",
+    "rbqig_b4",
+    "rbqig_b4_no_combo",
+    "rbqig_b6",
+]
 
 
 def read_csv(path: str | Path) -> list[dict[str, str]]:

@@ -171,7 +171,8 @@ def aggregate_metrics(per_record_metrics: list[dict[str, Any]]) -> list[dict[str
         "blanket_qi": 3,
         "rbqig_b2": 4,
         "rbqig_b4": 5,
-        "rbqig_b6": 6,
+        "rbqig_b4_no_combo": 6,
+        "rbqig_b6": 7,
     }
     metrics = []
     for method, rows in sorted(by_method.items(), key=lambda item: method_order.get(item[0], 99)):

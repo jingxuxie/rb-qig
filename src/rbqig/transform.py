@@ -13,11 +13,13 @@ METHODS = [
     "blanket_qi",
     "rbqig_b2",
     "rbqig_b4",
+    "rbqig_b4_no_combo",
     "rbqig_b6",
 ]
 
 
 def _budget_for(method: str) -> float:
+    method = method.removesuffix("_no_combo")
     if method == "rbqig_b2":
         return 2.0
     if method == "rbqig_b4":
@@ -32,9 +34,10 @@ def _pairwise_boost(risks: list[float]) -> float:
     return 0.5 * (linkable * (linkable - 1) / 2)
 
 
-def compute_doc_risk(states: list[dict[str, Any]]) -> float:
+def compute_doc_risk(states: list[dict[str, Any]], *, include_pairwise: bool = True) -> float:
     risks = [float(state["current_risk"]) for state in states]
-    return sum(risks) + _pairwise_boost(risks)
+    pairwise = _pairwise_boost(risks) if include_pairwise else 0.0
+    return sum(risks) + pairwise
 
 
 def _initial_states(record: dict[str, Any]) -> list[dict[str, Any]]:
@@ -75,9 +78,14 @@ def _next_candidate(state: dict[str, Any]) -> dict[str, Any] | None:
     return None
 
 
-def _choose_budgeted_levels(record: dict[str, Any], budget: float) -> tuple[list[dict[str, Any]], float, float]:
+def _choose_budgeted_levels(
+    record: dict[str, Any],
+    budget: float,
+    *,
+    include_pairwise: bool = True,
+) -> tuple[list[dict[str, Any]], float, float]:
     states = _initial_states(record)
-    initial_risk = compute_doc_risk(states)
+    initial_risk = compute_doc_risk(states, include_pairwise=include_pairwise)
     current_risk = initial_risk
 
     while current_risk > budget:
@@ -98,7 +106,7 @@ def _choose_budgeted_levels(record: dict[str, Any], budget: float) -> tuple[list
         state["level"] = best["next_level"]
         state["current_risk"] = best["next_risk"]
         state["current_utility_loss"] = best["next_loss"]
-        current_risk = compute_doc_risk(states)
+        current_risk = compute_doc_risk(states, include_pairwise=include_pairwise)
 
     return states, initial_risk, current_risk
 
@@ -164,8 +172,9 @@ def transform_record(record: dict[str, Any], method: str) -> dict[str, Any]:
         doc_risk_after = 0.0
 
     if method.startswith("rbqig_"):
+        include_pairwise = not method.endswith("_no_combo")
         states, doc_risk_before, doc_risk_after = _choose_budgeted_levels(
-            record, _budget_for(method)
+            record, _budget_for(method), include_pairwise=include_pairwise
         )
         replacements = []
         for state in states:

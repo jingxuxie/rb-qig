@@ -170,7 +170,16 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for row in rows:
         by_method[row["method"]].append(row)
 
-    order = {"none": 0, "direct": 1, "llm_direct": 2, "blanket_qi": 3, "rbqig_b2": 4, "rbqig_b4": 5, "rbqig_b6": 6}
+    order = {
+        "none": 0,
+        "direct": 1,
+        "llm_direct": 2,
+        "blanket_qi": 3,
+        "rbqig_b2": 4,
+        "rbqig_b4": 5,
+        "rbqig_b4_no_combo": 6,
+        "rbqig_b6": 7,
+    }
     metrics = [
         "qi_specificity_score",
         "utility_weighted_specificity",

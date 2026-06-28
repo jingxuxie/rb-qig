@@ -18,7 +18,7 @@ Current readiness:
 | Target | Readiness | Rationale |
 | --- | --- | --- |
 | Workshop short paper | Strong | 4-page manuscript, generated tables, bootstrap intervals, claim audit, qualitative appendix, and reviewer stress test are in place. |
-| High-impact top-tier paper | Promising but incomplete | Now has a bounded TAB legal-domain diagnostic, a pattern-only Presidio-style baseline, a negative TAB legal-utility screen, and a negative legal-role replacement check, but still needs stronger utility tasks before claims can scale beyond a pilot. |
+| High-impact top-tier paper | Promising but incomplete | Now has a bounded TAB legal-domain diagnostic, a pattern-only Presidio-style baseline, a negative TAB legal-utility screen, a negative legal-role replacement check, a no-combo ablation, and a 50-record GPT-5.5 attacker check, but still needs stronger utility tasks before claims can scale beyond a pilot. |
 
 ## Research Questions
 
@@ -34,8 +34,8 @@ Current readiness:
 | Contribution from plan | Current status | Evidence artifact | Gap |
 | --- | --- | --- | --- |
 | Quasi-identifier taxonomy | Implemented and written | `paper/main.tex`, `prompts/qi_extractor.txt`, `src/api_qi_extractor.py` | Taxonomy could be expanded with a more formal category ablation later. |
-| Risk-budgeted generalization algorithm | Implemented and written | `src/rbqig/transform.py`, `src/run_methods.py`, `paper/main.tex`, `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/budgetfix_report.md` | No separate ablation of the pairwise combination boost yet. |
-| Low-cost LLM-attacker protocol | Implemented | `src/llm_attack_eval.py`, `results/ratbench_d1_api_100/llm_attacker_metrics_with_llm_direct.csv`, `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_metrics.csv` | Multi-model agreement is only a 20-record stronger-attacker smoke. |
+| Risk-budgeted generalization algorithm | Implemented and written | `src/rbqig/transform.py`, `src/run_methods.py`, `paper/main.tex`, `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/budgetfix_report.md`, `results/followup_priority0_20260628/report.md` | Pairwise no-combo ablation is now run; it is non-discriminating under the balanced budget, so do not claim the pairwise term is independently validated. |
+| Low-cost LLM-attacker protocol | Implemented | `src/llm_attack_eval.py`, `results/ratbench_d1_api_100/llm_attacker_metrics_with_llm_direct.csv`, `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_metrics.csv`, `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_report.md` | Stronger-attacker robustness is now tested, but multi-model agreement remains incomplete. |
 | Privacy-utility comparison | Implemented for core methods | `paper/generated/tables.md`, `paper/CLAIM_AUDIT.md` | Production de-identification baselines remain future work. |
 
 ## Baseline Coverage
@@ -47,8 +47,8 @@ Current readiness:
 | M2 naive LLM direct sanitizer | Done for public target-aware RAT-Bench | `results/ratbench_d1_api_100/llm_attacker_metrics_with_llm_direct.csv`. |
 | M3 blanket QI redaction | Done | Synthetic, target-aware public, and blind public tables. |
 | M4 RB-QIG balanced | Done | Main method in all current evidence. |
-| M5 RB-QIG strict | Done synthetically; public smoke only | Synthetic table and 40-record blind budget smoke. |
-| M6 RB-QIG utility | Done synthetically; public smoke only | Synthetic table and 40-record blind budget smoke. |
+| M5 RB-QIG strict | Done synthetically; deterministic public frontier plus public LLM smoke | Synthetic table, deterministic public frontier, and 40-record blind budget smoke. |
+| M6 RB-QIG utility | Done synthetically; deterministic public frontier plus public LLM smoke | Synthetic table, deterministic public frontier, and 40-record blind budget smoke. |
 | M7 production privacy filter or Presidio-style baseline | Partial pattern-only baseline done | `results/presidio_pattern_baseline_report.md` | Uses Presidio framework with custom patterns and no NER model. Useful as a practical lower bound, not full Presidio. |
 
 ## Dataset Coverage
@@ -80,22 +80,22 @@ Current readiness:
 
 | Planned ablation | Status | Evidence | Decision |
 | --- | --- | --- | --- |
-| Budgets 2/4/6 | Done on synthetic; limited public smoke | Synthetic frontier and `results/ratbench_d1_blind_backstop_api_100/budget_variant_smoke_report.md` | Keep `rbqig_b4` as main. The public smoke did not justify a full budget sweep. |
-| Remove combination boost | Not done | None | Useful but not required for the workshop paper. |
+| Budgets 2/4/6 | Done on synthetic; deterministic public RAT-Bench/TAB frontier; limited public LLM smoke | Synthetic frontier, `results/followup_priority0_20260628/report.md`, and `results/ratbench_d1_blind_backstop_api_100/budget_variant_smoke_report.md` | Keep `rbqig_b4` as main. The deterministic frontier shows the budget knob trades leakage for QI specificity; the public LLM smoke did not justify more API budget. |
+| Remove combination boost | Done, negative/tied | `results/followup_priority0_20260628/report.md` | Balanced no-combo produces identical transformed text and change logs on synthetic 100, blind RAT-Bench 100, and TAB 30. Treat the pairwise term as a design heuristic not isolated by this pilot. |
 | Quasi-identifier type removal | Not done as a systematic ablation | Failure taxonomy gives qualitative type evidence. | Consider for a longer paper. |
-| Attacker strength | Partial | 20-record `gpt-5.4-mini` smoke. | Enough for a workshop robustness paragraph. |
+| Attacker strength | Done for bounded robustness | 20-record `gpt-5.4-mini` target-aware smoke and 50-record GPT-5.5 blind-backstop check. | GPT-5.5 is harsher but preserves the direct-to-RB-QIG reduction; use it as a caveat rather than a headline win. |
 
 ## Artifact Readiness
 
 | Artifact | Status |
 | --- | --- |
-| Main manuscript | `paper/main.tex` compiles to 4 pages as `paper/main.pdf`. |
+| Main manuscript | `paper/main.tex` compiles as a 5-page COLM-formatted `paper/main.pdf`. |
 | Generated result tables | `paper/generated/tables.md` and `paper/generated/tables.tex`. |
 | Qualitative appendix | `paper/QUALITATIVE_APPENDIX.md`. |
 | Claim audit | `paper/CLAIM_AUDIT.md`, currently 15/15 claim groups matched. |
 | Reviewer stress test | `paper/REVIEWER_STRESS_TEST.md`. |
 | Reproducibility commands | `README.md` and `RESEARCH_STATUS.md`. |
-| API budget tracking | `RESEARCH_STATUS.md`, currently about $1.85 fresh-equivalent cached cost. |
+| API budget tracking | `RESEARCH_STATUS.md`, currently about $5.76 fresh-equivalent cached cost. |
 
 ## Claim Boundary
 
@@ -127,8 +127,8 @@ The next experiment should only be run if it can be bounded and cheap.
 | Priority | Action | Why | Stop rule |
 | --- | --- | --- | --- |
 | 1 | Improve task-realistic utility evaluation beyond broad labels. | Public and TAB utility remain the weakest part of the evidence package. | Keep any API usage under a small fixed cap and reuse transformed outputs. |
-| 2 | Run a tiny multi-model attacker agreement check on the existing 20-record subset. | Tests whether the attacker conclusion depends on one model family. | Keep under a small fixed API cap and reuse cached transformed outputs. |
+| 2 | Run a tiny multi-model attacker agreement check on an existing subset. | Tests whether the attacker conclusion depends on one model family after the GPT-5.5 caveat. | Keep under a small fixed API cap and reuse cached transformed outputs. |
 | 3 | Tighten the 4-page manuscript after final template choice. | The evidence is stronger than the current space-limited narrative can fully express. | Preserve the 4-page limit and do not broaden claims. |
 
-Avoid spending time on a full 300-row RAT-Bench expansion or full public budget
-sweep unless a reviewer or target venue requires narrower confidence intervals.
+Avoid spending time on a full 300-row RAT-Bench expansion unless a reviewer or
+target venue requires narrower confidence intervals.

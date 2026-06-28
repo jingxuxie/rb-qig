@@ -8,7 +8,7 @@ Last updated: 2026-06-28
 - Direct identifier redaction using regexes plus known benchmark direct identifiers.
 - Heuristic direct-name redaction for public benchmark rows whose metadata omits explicit names but whose text states names in dialogue.
 - Baselines: no anonymization, direct redaction, blanket QI redaction.
-- RB-QIG variants: strict budget 2, balanced budget 4, utility budget 6.
+- RB-QIG variants: strict budget 2, balanced budget 4, balanced no-combo ablation, utility budget 6.
 - Deterministic leakage proxy for exact/coarse quasi-identifier leakage.
 - Deterministic utility proxy for task label and utility fact preservation.
 - SVG plots for privacy-utility frontier and leakage by method.
@@ -21,6 +21,7 @@ Last updated: 2026-06-28
 - Cached naive LLM direct-redaction baseline (`llm_direct`) for the planned M2 comparison.
 - 30-row RAT-Bench English difficulty-2 robustness smoke with target-aware extraction, naive LLM sanitizer, and LLM-attacker evaluation.
 - 20-record stronger-attacker smoke with `gpt-5.4-mini` on the target-aware public pilot.
+- 50-record GPT-5.5 stronger-attacker check on blind public RAT-Bench outputs, with retry handling for incomplete JSON responses.
 - 30-document TAB ECHR deterministic second-domain screen using public annotations and no API calls.
 - 10-document TAB ECHR legal-task LLM utility screen using 40 fresh-equivalent calls, including a utility-budget variant check; the 10 new `rbqig_b6` calls cost $0.008304.
 - Bounded TAB legal-role generalization diagnostic; the 10 new changed-RB-QIG legal-utility calls cost $0.008006 and did not improve legal-task utility.
@@ -32,6 +33,7 @@ Last updated: 2026-06-28
 - Generic deterministic backstop for blind extraction of common demographic, citizenship, education, employment, marital, and race/ethnicity cues.
 - Improved blind-backstop v2 that adds separated-status, grade-level, gendered-term, and race/ethnicity lexical coverage.
 - Budget-enforcing RB-QIG optimizer fix that scans forward to the next risk-reducing candidate level.
+- No-API Priority 0 follow-up: pairwise no-combo ablation and deterministic public budget frontier.
 - Paper table generator for Markdown and LaTeX result tables.
 - Qualitative appendix generator for positive examples, target-aware public comparisons, and blind public failure modes.
 - Claim audit generator that ties headline paper claims to local CSV and report artifacts.
@@ -302,6 +304,55 @@ Interpretation:
 - A value-free safe-label smoke did not improve public utility or privacy materially, so it is a negative diagnostic rather than a main paper point.
 - A 40-record privacy-aware utility screen also does not rescue the public utility claim: RB-QIG balanced scores 83.0% [78.5, 87.0] versus 87.5% [83.5, 91.5] for blanket QI, a paired -4.5 points [-9.0, 0.0].
 
+## Priority 0 No-API Follow-up
+
+Report: `results/followup_priority0_20260628/report.md`
+
+Representative command pattern:
+
+```bash
+/home/eston/anaconda3/envs/rb_qig/bin/python src/run_methods.py --input data/processed/ratbench_english_d1_100_blind_backstop_v2_api_qi.jsonl --out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/anonymized_outputs.jsonl
+/home/eston/anaconda3/envs/rb_qig/bin/python src/evaluate_outputs.py --input results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/anonymized_outputs.jsonl --attacks-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/attacker_outputs.jsonl --utility-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/utility_outputs.jsonl --metrics-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/metrics.csv
+/home/eston/anaconda3/envs/rb_qig/bin/python src/qi_specificity_eval.py --input results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/anonymized_outputs.jsonl --source-name ratbench_d1_blind_backstop_v2_budgetfix_api_100_priority0 --per-record-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/qi_specificity_per_record.jsonl --metrics-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/qi_specificity_metrics.csv --report-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/qi_specificity_report.md
+/home/eston/anaconda3/envs/rb_qig/bin/python src/bootstrap_results.py --input results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/anonymized_outputs.jsonl --source-type transformed --source-name ratbench_d1_blind_backstop_v2_budgetfix_api_100_priority0 --cis-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/bootstrap_cis.csv --contrasts-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/bootstrap_contrasts.csv --report-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/bootstrap_report.md --per-record-out results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/per_record_metrics.csv --n-boot 5000 --seed 20260628 --comparisons rbqig_b4_no_combo:rbqig_b4 rbqig_b4:blanket_qi rbqig_b2:rbqig_b4 rbqig_b6:rbqig_b4
+/home/eston/anaconda3/envs/rb_qig/bin/python src/summarize_priority0_followup.py --out results/followup_priority0_20260628/report.md
+```
+
+The same no-API pipeline was repeated for `data/synthetic/synthetic_100.jsonl`
+and `data/processed/tab_echr_dev_30.jsonl`.
+
+No-combo ablation:
+
+| Dataset | RB-QIG balanced risk | RB-QIG no-combo risk | Utility/fact preservation | Token change | Outcome |
+|---|---:|---:|---:|---:|---|
+| Synthetic 100 | 23.6% | 23.6% | 71.7% | 59.0% | tied |
+| RAT-Bench blind 100 | 5.4% | 5.4% | 100.0% | 10.1% | tied |
+| TAB legal 30 | 12.3% | 12.3% | 100.0% | 13.9% | tied |
+
+Mechanism check: `rbqig_b4` and `rbqig_b4_no_combo` produced identical
+transformed text and identical change logs for 100/100 synthetic records,
+100/100 blind RAT-Bench records, and 30/30 TAB records. This means the current
+balanced-budget pilot does not isolate the pairwise combination-risk term.
+Keep the term as a documented design heuristic, not as an independently
+validated empirical contributor.
+
+Deterministic public budget frontier:
+
+| Dataset | Budget | Risk-weighted leakage | QI specificity | Token change |
+|---|---:|---:|---:|---:|
+| RAT-Bench blind | 2 | 4.4% | 30.1% | 10.4% |
+| RAT-Bench blind | 4 | 5.4% | 33.2% | 10.1% |
+| RAT-Bench blind | 6 | 7.2% | 36.4% | 9.9% |
+| TAB legal | 2 | 7.8% | 28.1% | 13.9% |
+| TAB legal | 4 | 12.3% | 31.2% | 13.9% |
+| TAB legal | 6 | 20.4% | 34.3% | 13.9% |
+
+Interpretation:
+
+- The no-combo ablation is a clean negative result: under the current balanced budget, the pairwise penalty does not change selected edits on the evaluated data.
+- The deterministic public budget frontier is useful: larger budgets retain more QI specificity but increase residual deterministic leakage.
+- This does not overturn the earlier public LLM budget smoke, which remains the stronger reason to keep `rbqig_b4` as the main paper setting.
+
 ## Blind RAT-Bench Budget Variant Smoke
 
 Report: `results/ratbench_d1_blind_backstop_api_100/budget_variant_smoke_report.md`
@@ -424,6 +475,37 @@ Interpretation:
 - RB-QIG balanced remains statistically tied with blanket QI under the stronger attacker: +2.0 points [-3.7, +6.9].
 - Treat this as an attacker-strength robustness smoke, not a replacement for the 100-row low-cost attacker table.
 
+## GPT-5.5 Blind Strong-Attacker Check
+
+Commands:
+
+```bash
+/home/eston/anaconda3/envs/rb_qig/bin/python src/llm_attack_eval.py --input results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/anonymized_outputs.jsonl --attacks-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_outputs.jsonl --usage-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_usage.jsonl --metrics-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_metrics.csv --cache-dir results/api_cache/llm_attacker_gpt55 --methods direct blanket_qi rbqig_b4 --model gpt-5.5 --limit-records-per-method 50 --max-output-tokens 900 --retry-max-output-tokens 2400
+/home/eston/anaconda3/envs/rb_qig/bin/python src/bootstrap_results.py --input results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_outputs.jsonl --source-type llm-attacker --source-name ratbench_d1_blind_backstop_v2_budgetfix_api_100_gpt55_attacker50 --cis-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_cis.csv --contrasts-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_contrasts.csv --report-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_report.md --per-record-out results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_per_record_metrics.csv --n-boot 5000 --seed 20260628 --comparisons direct:rbqig_b4 rbqig_b4:blanket_qi
+```
+
+Metrics: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_metrics.csv`
+
+Bootstrap report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_report.md`
+
+Fresh-equivalent cache cost: $3.914285 for 164 cached responses, including
+14 incomplete responses and 14 successful retries at a larger output cap. The
+successful resumed invocation made 111 uncached API calls; direct rows reused
+cache from the initial attempt.
+
+| Method | Record compromise | Exact attr leak | Coarse attr leak | Risk-weighted leak |
+|---|---:|---:|---:|---:|
+| Direct | 40.0% | 86.4% | 90.1% | 87.8% |
+| Blanket QI | 2.0% | 26.3% | 36.3% | 29.7% |
+| RB-QIG balanced | 2.0% | 28.6% | 38.9% | 31.9% |
+
+Interpretation:
+
+- GPT-5.5 is substantially harsher than `gpt-5.4-nano` on placeholder and generalized text. On the same first 50 blind-backstop records, the cheaper attacker estimated risk-weighted leakage at 73.6% for direct, 7.1% for blanket QI, and 5.4% for RB-QIG balanced.
+- The main privacy conclusion survives in weaker form: direct redaction remains much leakier than RB-QIG balanced. The paired direct-minus-RB-QIG risk-weighted gap is +55.9 points [45.0, 65.7].
+- RB-QIG balanced remains statistically tied with blanket QI under GPT-5.5: +2.2 points [-4.7, 9.0]. Do not claim privacy superiority over blanket QI.
+- This result should be used as a robustness caveat: current RB-QIG reduces leakage relative to direct redaction, but a stronger attacker can infer many broad attributes from both RB-QIG and blanket outputs.
+
 ## Bootstrap Analysis Artifacts
 
 Commands:
@@ -454,7 +536,8 @@ Cached API usage currently present in this workspace:
 | LLM utility judge | 864 | 2,015,506 | $0.532039 |
 | LLM privacy-aware utility judge | 120 | 419,418 | $0.100685 |
 | LLM legal utility judge | 50 | 125,308 | $0.039890 |
-| Total | 2,573 | 5,428,739 | $1.848793 |
+| GPT-5.5 LLM attacker | 164 | 347,722 | $3.914285 |
+| Total | 2,737 | 5,776,461 | $5.763078 |
 
 ## Blind Synthetic Extractor Check
 
@@ -624,7 +707,7 @@ Artifacts:
 
 - `paper/main.tex`
 - `paper/references.bib`
-- `paper/main.pdf` (verified 4 pages with `pdfinfo`)
+- `paper/main.pdf` (verified 5 pages with `pdfinfo`)
 - `paper/QUALITATIVE_APPENDIX.md`
 - `paper/CLAIM_AUDIT.md`
 - `paper/PLAN_TO_EVIDENCE_AUDIT.md`

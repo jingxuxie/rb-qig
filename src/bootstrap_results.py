@@ -19,7 +19,8 @@ METHOD_ORDER = {
     "blanket_qi": 3,
     "rbqig_b2": 4,
     "rbqig_b4": 5,
-    "rbqig_b6": 6,
+    "rbqig_b4_no_combo": 6,
+    "rbqig_b6": 7,
 }
 
 

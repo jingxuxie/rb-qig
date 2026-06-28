@@ -12,6 +12,7 @@ COLORS = {
     "blanket_qi": "#dc2626",
     "rbqig_b2": "#059669",
     "rbqig_b4": "#0d9488",
+    "rbqig_b4_no_combo": "#0891b2",
     "rbqig_b6": "#65a30d",
 }
 
@@ -23,6 +24,7 @@ LABELS = {
     "blanket_qi": "Blanket QI",
     "rbqig_b2": "RB-QIG strict",
     "rbqig_b4": "RB-QIG balanced",
+    "rbqig_b4_no_combo": "RB-QIG no-combo",
     "rbqig_b6": "RB-QIG utility",
 }
 

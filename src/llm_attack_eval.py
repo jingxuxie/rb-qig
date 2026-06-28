@@ -246,7 +246,8 @@ def aggregate(rows: list[dict[str, Any]], usage_rows: list[dict[str, Any]]) -> l
         "blanket_qi": 3,
         "rbqig_b2": 4,
         "rbqig_b4": 5,
-        "rbqig_b6": 6,
+        "rbqig_b4_no_combo": 6,
+        "rbqig_b6": 7,
     }
     out = []
     for method, method_rows in sorted(by_method.items(), key=lambda item: order.get(item[0], 99)):
@@ -264,6 +265,29 @@ def aggregate(rows: list[dict[str, Any]], usage_rows: list[dict[str, Any]]) -> l
             }
         )
     return out
+
+
+def make_usage_row(
+    record: dict[str, Any],
+    response: dict[str, Any],
+    model: str,
+    from_cache: bool,
+    cache_path: Path,
+    parse_status: str,
+) -> dict[str, Any]:
+    usage = response.get("usage", {}) or {}
+    return {
+        "id": record.get("id"),
+        "method": record.get("method"),
+        "from_cache": from_cache,
+        "input_tokens": usage.get("input_tokens", 0),
+        "output_tokens": usage.get("output_tokens", 0),
+        "total_tokens": usage.get("total_tokens", 0),
+        "estimated_cost_usd": estimate_cost(model, usage),
+        "cache_path": str(cache_path),
+        "response_status": response.get("status", ""),
+        "parse_status": parse_status,
+    }
 
 
 def run(args: argparse.Namespace) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
@@ -317,23 +341,60 @@ def run(args: argparse.Namespace) -> tuple[list[dict[str, Any]], list[dict[str, 
             )
             from_cache = False
 
-        parsed = json.loads(response_text(response))
+        parse_status = "ok"
+        try:
+            parsed = json.loads(response_text(response))
+        except json.JSONDecodeError as exc:
+            usage_rows.append(
+                make_usage_row(
+                    record,
+                    response,
+                    args.model,
+                    from_cache,
+                    cache_path,
+                    f"parse_error:{response.get('status', '')}",
+                )
+            )
+            if args.retry_max_output_tokens <= args.max_output_tokens:
+                raise
+            retry_payload = make_payload(record, args.model, args.retry_max_output_tokens)
+            retry_cache_key = stable_hash(
+                {
+                    "version": 1,
+                    "model": args.model,
+                    "record_id": record.get("id"),
+                    "method": record.get("method"),
+                    "payload": retry_payload,
+                }
+            )
+            retry_cache_path = cache_dir / f"{retry_cache_key}.json"
+            if retry_cache_path.exists() and not args.no_cache:
+                cached = json.loads(retry_cache_path.read_text(encoding="utf-8"))
+                response = cached["response"]
+                from_cache = True
+            else:
+                response = call_responses_api(api_key, retry_payload)
+                retry_cache_path.write_text(
+                    json.dumps({"payload": retry_payload, "response": response}, indent=2),
+                    encoding="utf-8",
+                )
+                from_cache = False
+            cache_path = retry_cache_path
+            parse_status = f"retry_ok:{args.retry_max_output_tokens}"
+            try:
+                parsed = json.loads(response_text(response))
+            except json.JSONDecodeError as retry_exc:
+                raise RuntimeError(
+                    f"Could not parse model response for {record.get('id')} "
+                    f"{record.get('method')}; cache={cache_path}"
+                ) from retry_exc
         row = evaluate_attack(record, parsed)
         row["raw_guesses"] = parsed
         attack_rows.append(row)
 
-        usage = response.get("usage", {}) or {}
-        usage_row = {
-            "id": record.get("id"),
-            "method": record.get("method"),
-            "from_cache": from_cache,
-            "input_tokens": usage.get("input_tokens", 0),
-            "output_tokens": usage.get("output_tokens", 0),
-            "total_tokens": usage.get("total_tokens", 0),
-            "estimated_cost_usd": estimate_cost(args.model, usage),
-            "cache_path": str(cache_path),
-        }
-        usage_rows.append(usage_row)
+        usage_rows.append(
+            make_usage_row(record, response, args.model, from_cache, cache_path, parse_status)
+        )
         print(
             f"{idx}/{len(selected)} {record.get('id')} {record.get('method')}: "
             f"risk={row['risk_weighted_leakage']:.3f}, cache={from_cache}"
@@ -356,6 +417,7 @@ def main() -> None:
     parser.add_argument("--limit-records-per-method", type=int, default=0)
     parser.add_argument("--max-calls", type=int, default=0)
     parser.add_argument("--max-output-tokens", type=int, default=900)
+    parser.add_argument("--retry-max-output-tokens", type=int, default=0)
     parser.add_argument("--sleep-seconds", type=float, default=0.0)
     parser.add_argument("--no-cache", action="store_true")
     args = parser.parse_args()
