@@ -1,0 +1,9 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,direct_minus_rbqig_b4,privacy_aware_label_preservation,0.0,0.0,0.0,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,direct_minus_rbqig_b4,task_content_preservation,0.121,0.0955,0.148,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,direct_minus_rbqig_b4,privacy_aware_utility,0.035,-0.015,0.09,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,direct_minus_rbqig_b4,private_loss_penalty,0.0,0.0,0.0,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,rbqig_b4_minus_blanket_qi,privacy_aware_label_preservation,0.0,0.0,0.0,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,rbqig_b4_minus_blanket_qi,task_content_preservation,-0.02375,-0.05275,0.004006,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,rbqig_b4_minus_blanket_qi,privacy_aware_utility,-0.045,-0.09,0.0,40,5000,20260628
+ratbench_d1_blind_backstop_v2_api_100_privacy_aware_utility_40,rbqig_b4_minus_blanket_qi,private_loss_penalty,-0.025,-0.075,0.0,40,5000,20260628

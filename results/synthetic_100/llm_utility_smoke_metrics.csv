@@ -1,0 +1,2 @@
+method,n_records,label_preservation,llm_fact_preservation,semantic_utility_score,semantic_utility_score_0_to_5,api_calls,estimated_cost_usd
+direct,6,1.0,0.7639,0.8333,4.167,6,0.001331

@@ -1,0 +1,10 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,direct,label_preservation,0.99,0.97,1.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,direct,llm_fact_preservation,0.843066,0.811708,0.870275,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,direct,semantic_utility_score,0.862,0.832,0.888,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,blanket_qi,label_preservation,0.99,0.97,1.0,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,blanket_qi,llm_fact_preservation,0.538067,0.495066,0.581402,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,blanket_qi,semantic_utility_score,0.626,0.592,0.66,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,rbqig_b4,label_preservation,0.96,0.92,0.99,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,rbqig_b4,llm_fact_preservation,0.5549,0.520397,0.5867,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_utility,rbqig_b4,semantic_utility_score,0.622,0.588,0.652,100,5000,20260628

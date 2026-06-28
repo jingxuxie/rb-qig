@@ -1,0 +1,16 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b4_minus_blanket_qi,utility_weighted_specificity,0.068308,0.047132,0.091768,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b4_minus_blanket_qi,qi_specificity_score,0.068308,0.047275,0.092933,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b4_minus_blanket_qi,qi_generalized_rate,0.147333,0.105329,0.1925,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b4_minus_blanket_qi,qi_placeholder_rate,-0.159833,-0.209338,-0.115333,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b4_minus_blanket_qi,qi_exact_rate,0.0125,0.0,0.035,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b6_minus_blanket_qi,utility_weighted_specificity,0.100017,0.074141,0.128817,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b6_minus_blanket_qi,qi_specificity_score,0.100017,0.073775,0.129001,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b6_minus_blanket_qi,qi_generalized_rate,0.203167,0.153,0.257671,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b6_minus_blanket_qi,qi_placeholder_rate,-0.228167,-0.286008,-0.174333,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,rbqig_b6_minus_blanket_qi,qi_exact_rate,0.025,0.0025,0.0575,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,direct_minus_rbqig_b4,utility_weighted_specificity,0.623192,0.588033,0.656151,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,direct_minus_rbqig_b4,qi_specificity_score,0.623192,0.58919,0.655875,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,direct_minus_rbqig_b4,qi_generalized_rate,-0.147333,-0.1925,-0.105162,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,direct_minus_rbqig_b4,qi_placeholder_rate,-0.7255,-0.784838,-0.6665,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_qi_specificity,direct_minus_rbqig_b4,qi_exact_rate,0.900333,0.861667,0.935167,100,5000,20260627

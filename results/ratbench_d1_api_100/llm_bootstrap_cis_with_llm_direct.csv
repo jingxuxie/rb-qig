@@ -1,0 +1,17 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_api_100_llm_attacker_with_llm_direct,direct,record_compromise_rate,0.76,0.67,0.84,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,direct,exact_attribute_leakage,0.749333,0.694829,0.800171,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,direct,coarse_attribute_leakage,0.812167,0.768,0.853833,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,direct,risk_weighted_leakage,0.779906,0.733768,0.824818,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,llm_direct,record_compromise_rate,0.34,0.25,0.43025,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,llm_direct,exact_attribute_leakage,0.487167,0.425667,0.546338,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,llm_direct,coarse_attribute_leakage,0.528333,0.464829,0.587171,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,llm_direct,risk_weighted_leakage,0.459761,0.401215,0.519829,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,blanket_qi,record_compromise_rate,0.03,0.0,0.07,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,blanket_qi,exact_attribute_leakage,0.039167,0.015,0.07,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,blanket_qi,coarse_attribute_leakage,0.072833,0.042663,0.108342,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,blanket_qi,risk_weighted_leakage,0.05259,0.027409,0.082711,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,rbqig_b4,record_compromise_rate,0.02,0.0,0.05,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,rbqig_b4,exact_attribute_leakage,0.04,0.015833,0.069167,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,rbqig_b4,coarse_attribute_leakage,0.087833,0.052833,0.127504,100,5000,20260627
+ratbench_d1_api_100_llm_attacker_with_llm_direct,rbqig_b4,risk_weighted_leakage,0.05741,0.031587,0.08793,100,5000,20260627

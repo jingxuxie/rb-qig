@@ -1,0 +1,2 @@
+method,n_records,label_preservation,llm_fact_preservation,semantic_utility_score,semantic_utility_score_0_to_5,api_calls,estimated_cost_usd
+rbqig_b4,40,1.0,0.596,0.63,3.15,20,0.03309

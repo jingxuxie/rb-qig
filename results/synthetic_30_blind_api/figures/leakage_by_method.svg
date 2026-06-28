@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="520" viewBox="0 0 850 520">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#111827} .axis{stroke:#374151;stroke-width:1.2} .grid{stroke:#e5e7eb;stroke-width:1}</style>
+<text x="80" y="30" font-size="20" font-weight="700">Residual leakage by method</text>
+<line class="grid" x1="80" y1="400.0" x2="820" y2="400.0"/>
+<text x="38" y="404.0" font-size="12">0</text>
+<line class="grid" x1="80" y1="313.8" x2="820" y2="313.8"/>
+<text x="38" y="317.8" font-size="12">0.25</text>
+<line class="grid" x1="80" y1="227.5" x2="820" y2="227.5"/>
+<text x="38" y="231.5" font-size="12">0.5</text>
+<line class="grid" x1="80" y1="141.2" x2="820" y2="141.2"/>
+<text x="38" y="145.2" font-size="12">0.75</text>
+<line class="grid" x1="80" y1="55.0" x2="820" y2="55.0"/>
+<text x="38" y="59.0" font-size="12">1</text>
+<line class="axis" x1="80" y1="400" x2="820" y2="400"/>
+<line class="axis" x1="80" y1="55" x2="80" y2="400"/>
+<rect x="105.8" y="55.0" width="34.0" height="345.0" fill="#1d4ed8"/>
+<rect x="143.6" y="55.0" width="34.0" height="345.0" fill="#f97316"/>
+<text x="99.7" y="424" font-size="12" transform="rotate(30 99.7 424)">None</text>
+<rect x="229.1" y="55.0" width="34.0" height="345.0" fill="#1d4ed8"/>
+<rect x="266.9" y="55.0" width="34.0" height="345.0" fill="#f97316"/>
+<text x="223.0" y="424" font-size="12" transform="rotate(30 223.0 424)">Direct</text>
+<rect x="352.4" y="400.0" width="34.0" height="0.0" fill="#1d4ed8"/>
+<rect x="390.2" y="400.0" width="34.0" height="0.0" fill="#f97316"/>
+<text x="346.3" y="424" font-size="12" transform="rotate(30 346.3 424)">Blanket QI</text>
+<rect x="475.8" y="400.0" width="34.0" height="0.0" fill="#1d4ed8"/>
+<rect x="513.6" y="400.0" width="34.0" height="0.0" fill="#f97316"/>
+<text x="469.7" y="424" font-size="12" transform="rotate(30 469.7 424)">RB-QIG strict</text>
+<rect x="599.1" y="400.0" width="34.0" height="0.0" fill="#1d4ed8"/>
+<rect x="636.9" y="400.0" width="34.0" height="0.0" fill="#f97316"/>
+<text x="593.0" y="424" font-size="12" transform="rotate(30 593.0 424)">RB-QIG balanced</text>
+<rect x="722.4" y="400.0" width="34.0" height="0.0" fill="#1d4ed8"/>
+<rect x="760.2" y="400.0" width="34.0" height="0.0" fill="#f97316"/>
+<text x="716.3" y="424" font-size="12" transform="rotate(30 716.3 424)">RB-QIG utility</text>
+<rect x="640" y="58" width="14" height="14" fill="#1d4ed8"/>
+<text x="662" y="70" font-size="13">Exact attribute leakage</text>
+<rect x="640" y="82" width="14" height="14" fill="#f97316"/>
+<text x="662" y="94" font-size="13">Coarse attribute leakage</text>
+</svg>

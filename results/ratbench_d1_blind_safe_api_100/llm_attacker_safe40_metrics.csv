@@ -1,0 +1,2 @@
+method,n_records,record_compromise_rate,exact_attribute_leakage,coarse_attribute_leakage,risk_weighted_leakage,api_calls,estimated_cost_usd
+rbqig_b4,40,0.0,0.0917,0.1125,0.0872,20,0.02036

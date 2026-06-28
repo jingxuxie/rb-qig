@@ -1,0 +1,17 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_api_100_stronger20_llm_attacker,direct,record_compromise_rate,0.8,0.6,0.95,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct,exact_attribute_leakage,0.7675,0.633333,0.883333,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct,coarse_attribute_leakage,0.813333,0.688333,0.920833,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct,risk_weighted_leakage,0.773462,0.640618,0.888542,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct,record_compromise_rate,0.25,0.1,0.45,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct,exact_attribute_leakage,0.434167,0.314167,0.555,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct,coarse_attribute_leakage,0.496667,0.371667,0.609167,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct,risk_weighted_leakage,0.401896,0.294038,0.511241,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,blanket_qi,record_compromise_rate,0.05,0.0,0.15,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,blanket_qi,exact_attribute_leakage,0.174167,0.103333,0.245854,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,blanket_qi,coarse_attribute_leakage,0.22,0.131604,0.310854,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,blanket_qi,risk_weighted_leakage,0.160458,0.094044,0.225724,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4,record_compromise_rate,0.1,0.0,0.25,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4,exact_attribute_leakage,0.161667,0.0875,0.236687,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4,coarse_attribute_leakage,0.249167,0.141667,0.369167,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4,risk_weighted_leakage,0.180101,0.103997,0.262317,20,5000,20260627

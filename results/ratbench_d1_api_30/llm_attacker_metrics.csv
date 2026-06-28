@@ -1,0 +1,4 @@
+method,n_records,record_compromise_rate,exact_attribute_leakage,coarse_attribute_leakage,risk_weighted_leakage,api_calls,estimated_cost_usd
+direct,30,0.8333,0.7039,0.7372,0.7277,0,0.014733
+blanket_qi,30,0.0333,0.0306,0.0694,0.0418,17,0.015202
+rbqig_b4,30,0.0333,0.0306,0.075,0.0432,22,0.015119

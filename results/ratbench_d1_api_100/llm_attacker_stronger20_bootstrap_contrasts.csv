@@ -1,0 +1,17 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_llm_direct,record_compromise_rate,0.55,0.35,0.75,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_llm_direct,exact_attribute_leakage,0.333333,0.229167,0.441667,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_llm_direct,coarse_attribute_leakage,0.316667,0.216667,0.416667,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_llm_direct,risk_weighted_leakage,0.371567,0.261556,0.481705,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct_minus_rbqig_b4,record_compromise_rate,0.15,0.0,0.3,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct_minus_rbqig_b4,exact_attribute_leakage,0.2725,0.145833,0.407521,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct_minus_rbqig_b4,coarse_attribute_leakage,0.2475,0.118333,0.379167,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,llm_direct_minus_rbqig_b4,risk_weighted_leakage,0.221795,0.109963,0.341783,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_rbqig_b4,record_compromise_rate,0.7,0.5,0.9,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_rbqig_b4,exact_attribute_leakage,0.605833,0.480812,0.730833,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_rbqig_b4,coarse_attribute_leakage,0.564167,0.4325,0.693333,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,direct_minus_rbqig_b4,risk_weighted_leakage,0.593362,0.463211,0.723547,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4_minus_blanket_qi,record_compromise_rate,0.05,0.0,0.15,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4_minus_blanket_qi,exact_attribute_leakage,-0.0125,-0.075,0.0375,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4_minus_blanket_qi,coarse_attribute_leakage,0.029167,-0.05,0.095833,20,5000,20260627
+ratbench_d1_api_100_stronger20_llm_attacker,rbqig_b4_minus_blanket_qi,risk_weighted_leakage,0.019643,-0.036607,0.06875,20,5000,20260627

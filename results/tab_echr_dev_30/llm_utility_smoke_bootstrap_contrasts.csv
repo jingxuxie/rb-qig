@@ -1,0 +1,7 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+tab_echr_dev_30_llm_utility_smoke,direct_minus_rbqig_b4,label_preservation,0.0,0.0,0.0,5,5000,20260627
+tab_echr_dev_30_llm_utility_smoke,direct_minus_rbqig_b4,llm_fact_preservation,0.22,0.08,0.36,5,5000,20260627
+tab_echr_dev_30_llm_utility_smoke,direct_minus_rbqig_b4,semantic_utility_score,0.16,0.08,0.2,5,5000,20260627
+tab_echr_dev_30_llm_utility_smoke,rbqig_b4_minus_blanket_qi,label_preservation,0.0,0.0,0.0,5,5000,20260627
+tab_echr_dev_30_llm_utility_smoke,rbqig_b4_minus_blanket_qi,llm_fact_preservation,-0.062,-0.21,0.068,5,5000,20260627
+tab_echr_dev_30_llm_utility_smoke,rbqig_b4_minus_blanket_qi,semantic_utility_score,0.04,-0.08,0.16,5,5000,20260627

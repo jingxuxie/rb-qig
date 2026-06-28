@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+
+.DS_Store
+
+data/raw/
+data/processed/
+data/synthetic/
+
+# Generated experiment artifacts that are too bulky for the source repo.
+results/api_cache/
+results/**/*.jsonl
+
+# TeX intermediates
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz

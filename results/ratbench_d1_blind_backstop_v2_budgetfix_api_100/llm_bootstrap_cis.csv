@@ -1,0 +1,13 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,direct,record_compromise_rate,0.37,0.28,0.46,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,direct,exact_attribute_leakage,0.749333,0.695162,0.800667,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,direct,coarse_attribute_leakage,0.812167,0.768833,0.853167,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,direct,risk_weighted_leakage,0.78123,0.733316,0.828616,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,blanket_qi,record_compromise_rate,0.01,0.0,0.03,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,blanket_qi,exact_attribute_leakage,0.054167,0.028333,0.083333,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,blanket_qi,coarse_attribute_leakage,0.083333,0.051667,0.119167,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,blanket_qi,risk_weighted_leakage,0.068158,0.039857,0.099201,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,rbqig_b4,record_compromise_rate,0.01,0.0,0.03,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,rbqig_b4,exact_attribute_leakage,0.053333,0.03,0.078333,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,rbqig_b4,coarse_attribute_leakage,0.081667,0.051667,0.113333,100,5000,20260628
+ratbench_d1_blind_backstop_v2_budgetfix_api_100_llm_attacker,rbqig_b4,risk_weighted_leakage,0.063574,0.038592,0.091245,100,5000,20260628

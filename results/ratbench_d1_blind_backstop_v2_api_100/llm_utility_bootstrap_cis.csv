@@ -1,0 +1,10 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,direct,label_preservation,0.99,0.97,1.0,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,direct,llm_fact_preservation,0.843066,0.812956,0.87005,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,direct,semantic_utility_score,0.862,0.834,0.888,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,blanket_qi,label_preservation,0.99,0.97,1.0,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,blanket_qi,llm_fact_preservation,0.538067,0.495666,0.579969,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,blanket_qi,semantic_utility_score,0.626,0.592,0.66,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,rbqig_b4,label_preservation,0.97,0.93,1.0,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,rbqig_b4,llm_fact_preservation,0.5578,0.524,0.5924,100,5000,20260627
+ratbench_d1_blind_backstop_v2_api_100_llm_utility,rbqig_b4,semantic_utility_score,0.626,0.592,0.66,100,5000,20260627

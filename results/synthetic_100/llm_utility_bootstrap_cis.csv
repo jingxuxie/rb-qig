@@ -1,0 +1,10 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+synthetic_100_llm_utility,direct,label_preservation,1.0,1.0,1.0,100,5000,20260627
+synthetic_100_llm_utility,direct,llm_fact_preservation,0.752783,0.732764,0.77305,100,5000,20260627
+synthetic_100_llm_utility,direct,semantic_utility_score,0.832,0.818,0.848,100,5000,20260627
+synthetic_100_llm_utility,blanket_qi,label_preservation,0.99,0.97,1.0,100,5000,20260627
+synthetic_100_llm_utility,blanket_qi,llm_fact_preservation,0.6909,0.665566,0.71407,100,5000,20260627
+synthetic_100_llm_utility,blanket_qi,semantic_utility_score,0.768,0.748,0.78405,100,5000,20260627
+synthetic_100_llm_utility,rbqig_b4,label_preservation,1.0,1.0,1.0,100,5000,20260627
+synthetic_100_llm_utility,rbqig_b4,llm_fact_preservation,0.713133,0.696333,0.729667,100,5000,20260627
+synthetic_100_llm_utility,rbqig_b4,semantic_utility_score,0.794,0.782,0.806,100,5000,20260627

@@ -1,0 +1,277 @@
+{
+  "model": "gpt-5.4-nano",
+  "n_records": 30,
+  "estimated_cost_usd": 0.021809,
+  "usage": [
+    {
+      "id": "synth_0000",
+      "from_cache": true,
+      "input_tokens": 421,
+      "output_tokens": 717,
+      "total_tokens": 1138,
+      "estimated_cost_usd": 0.0009804500000000001,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0001",
+      "from_cache": true,
+      "input_tokens": 409,
+      "output_tokens": 503,
+      "total_tokens": 912,
+      "estimated_cost_usd": 0.00071055,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0002",
+      "from_cache": true,
+      "input_tokens": 414,
+      "output_tokens": 516,
+      "total_tokens": 930,
+      "estimated_cost_usd": 0.0007278,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0003",
+      "from_cache": true,
+      "input_tokens": 407,
+      "output_tokens": 549,
+      "total_tokens": 956,
+      "estimated_cost_usd": 0.00076765,
+      "n_qi_spans": 10
+    },
+    {
+      "id": "synth_0004",
+      "from_cache": true,
+      "input_tokens": 410,
+      "output_tokens": 464,
+      "total_tokens": 874,
+      "estimated_cost_usd": 0.000662,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0005",
+      "from_cache": true,
+      "input_tokens": 419,
+      "output_tokens": 601,
+      "total_tokens": 1020,
+      "estimated_cost_usd": 0.0008350499999999999,
+      "n_qi_spans": 6
+    },
+    {
+      "id": "synth_0006",
+      "from_cache": true,
+      "input_tokens": 406,
+      "output_tokens": 473,
+      "total_tokens": 879,
+      "estimated_cost_usd": 0.00067245,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0007",
+      "from_cache": true,
+      "input_tokens": 412,
+      "output_tokens": 645,
+      "total_tokens": 1057,
+      "estimated_cost_usd": 0.00088865,
+      "n_qi_spans": 14
+    },
+    {
+      "id": "synth_0008",
+      "from_cache": true,
+      "input_tokens": 405,
+      "output_tokens": 536,
+      "total_tokens": 941,
+      "estimated_cost_usd": 0.000751,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0009",
+      "from_cache": true,
+      "input_tokens": 407,
+      "output_tokens": 356,
+      "total_tokens": 763,
+      "estimated_cost_usd": 0.0005264,
+      "n_qi_spans": 5
+    },
+    {
+      "id": "synth_0010",
+      "from_cache": true,
+      "input_tokens": 417,
+      "output_tokens": 640,
+      "total_tokens": 1057,
+      "estimated_cost_usd": 0.0008834,
+      "n_qi_spans": 13
+    },
+    {
+      "id": "synth_0011",
+      "from_cache": true,
+      "input_tokens": 408,
+      "output_tokens": 470,
+      "total_tokens": 878,
+      "estimated_cost_usd": 0.0006691000000000001,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0012",
+      "from_cache": true,
+      "input_tokens": 413,
+      "output_tokens": 557,
+      "total_tokens": 970,
+      "estimated_cost_usd": 0.00077885,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0013",
+      "from_cache": true,
+      "input_tokens": 403,
+      "output_tokens": 467,
+      "total_tokens": 870,
+      "estimated_cost_usd": 0.00066435,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0014",
+      "from_cache": true,
+      "input_tokens": 402,
+      "output_tokens": 417,
+      "total_tokens": 819,
+      "estimated_cost_usd": 0.00060165,
+      "n_qi_spans": 6
+    },
+    {
+      "id": "synth_0015",
+      "from_cache": true,
+      "input_tokens": 421,
+      "output_tokens": 603,
+      "total_tokens": 1024,
+      "estimated_cost_usd": 0.00083795,
+      "n_qi_spans": 9
+    },
+    {
+      "id": "synth_0016",
+      "from_cache": true,
+      "input_tokens": 409,
+      "output_tokens": 521,
+      "total_tokens": 930,
+      "estimated_cost_usd": 0.0007330500000000001,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0017",
+      "from_cache": true,
+      "input_tokens": 413,
+      "output_tokens": 453,
+      "total_tokens": 866,
+      "estimated_cost_usd": 0.0006488500000000001,
+      "n_qi_spans": 9
+    },
+    {
+      "id": "synth_0018",
+      "from_cache": true,
+      "input_tokens": 398,
+      "output_tokens": 536,
+      "total_tokens": 934,
+      "estimated_cost_usd": 0.0007496,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0019",
+      "from_cache": true,
+      "input_tokens": 405,
+      "output_tokens": 462,
+      "total_tokens": 867,
+      "estimated_cost_usd": 0.0006585,
+      "n_qi_spans": 6
+    },
+    {
+      "id": "synth_0020",
+      "from_cache": true,
+      "input_tokens": 419,
+      "output_tokens": 477,
+      "total_tokens": 896,
+      "estimated_cost_usd": 0.00068005,
+      "n_qi_spans": 6
+    },
+    {
+      "id": "synth_0021",
+      "from_cache": true,
+      "input_tokens": 406,
+      "output_tokens": 536,
+      "total_tokens": 942,
+      "estimated_cost_usd": 0.0007512,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0022",
+      "from_cache": true,
+      "input_tokens": 414,
+      "output_tokens": 563,
+      "total_tokens": 977,
+      "estimated_cost_usd": 0.00078655,
+      "n_qi_spans": 9
+    },
+    {
+      "id": "synth_0023",
+      "from_cache": true,
+      "input_tokens": 403,
+      "output_tokens": 445,
+      "total_tokens": 848,
+      "estimated_cost_usd": 0.00063685,
+      "n_qi_spans": 6
+    },
+    {
+      "id": "synth_0024",
+      "from_cache": true,
+      "input_tokens": 408,
+      "output_tokens": 503,
+      "total_tokens": 911,
+      "estimated_cost_usd": 0.00071035,
+      "n_qi_spans": 7
+    },
+    {
+      "id": "synth_0025",
+      "from_cache": true,
+      "input_tokens": 420,
+      "output_tokens": 458,
+      "total_tokens": 878,
+      "estimated_cost_usd": 0.0006565,
+      "n_qi_spans": 9
+    },
+    {
+      "id": "synth_0026",
+      "from_cache": true,
+      "input_tokens": 405,
+      "output_tokens": 486,
+      "total_tokens": 891,
+      "estimated_cost_usd": 0.0006885,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0027",
+      "from_cache": true,
+      "input_tokens": 413,
+      "output_tokens": 550,
+      "total_tokens": 963,
+      "estimated_cost_usd": 0.0007700999999999999,
+      "n_qi_spans": 9
+    },
+    {
+      "id": "synth_0028",
+      "from_cache": true,
+      "input_tokens": 409,
+      "output_tokens": 461,
+      "total_tokens": 870,
+      "estimated_cost_usd": 0.0006580500000000001,
+      "n_qi_spans": 8
+    },
+    {
+      "id": "synth_0029",
+      "from_cache": true,
+      "input_tokens": 411,
+      "output_tokens": 513,
+      "total_tokens": 924,
+      "estimated_cost_usd": 0.00072345,
+      "n_qi_spans": 9
+    }
+  ]
+}

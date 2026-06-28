@@ -1,0 +1,16 @@
+source,comparison,metric,mean_diff,ci_low,ci_high,n_records,n_boot,seed
+tab_echr_dev_30_qi_specificity,rbqig_b4_minus_blanket_qi,utility_weighted_specificity,0.061674,0.05489,0.06864,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b4_minus_blanket_qi,qi_specificity_score,0.061917,0.054708,0.068901,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b4_minus_blanket_qi,qi_generalized_rate,0.154793,0.136871,0.171849,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b4_minus_blanket_qi,qi_placeholder_rate,-0.154793,-0.172554,-0.137523,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b4_minus_blanket_qi,qi_exact_rate,0.0,0.0,0.0,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b6_minus_blanket_qi,utility_weighted_specificity,0.093046,0.082823,0.103232,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b6_minus_blanket_qi,qi_specificity_score,0.092876,0.082433,0.103498,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b6_minus_blanket_qi,qi_generalized_rate,0.232189,0.205713,0.25949,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b6_minus_blanket_qi,qi_placeholder_rate,-0.232189,-0.259842,-0.20551,30,5000,20260627
+tab_echr_dev_30_qi_specificity,rbqig_b6_minus_blanket_qi,qi_exact_rate,0.0,0.0,0.0,30,5000,20260627
+tab_echr_dev_30_qi_specificity,direct_minus_rbqig_b4,utility_weighted_specificity,0.68563,0.677123,0.693405,30,5000,20260627
+tab_echr_dev_30_qi_specificity,direct_minus_rbqig_b4,qi_specificity_score,0.685537,0.676395,0.693723,30,5000,20260627
+tab_echr_dev_30_qi_specificity,direct_minus_rbqig_b4,qi_generalized_rate,-0.154793,-0.172781,-0.137283,30,5000,20260627
+tab_echr_dev_30_qi_specificity,direct_minus_rbqig_b4,qi_placeholder_rate,-0.844281,-0.861993,-0.827531,30,5000,20260627
+tab_echr_dev_30_qi_specificity,direct_minus_rbqig_b4,qi_exact_rate,0.997222,0.992593,1.0,30,5000,20260627

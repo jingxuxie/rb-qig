@@ -1,0 +1,30 @@
+You are helping evaluate a synthetic/public anonymization benchmark. Do not
+identify any real person. Your task is to identify quasi-identifiers: spans that
+may not identify a person alone but could reveal sensitive attributes or support
+re-identification when combined with other details.
+
+Return JSON with this schema:
+{
+  "quasi_identifiers": [
+    {
+      "span": "exact text span",
+      "category": "location|date|age|occupation|employer|education|medical|legal|financial|family|event|rare_fact|other",
+      "privacy_risk": 0-5,
+      "utility_importance": 0-5,
+      "why_risky": "<=12 words",
+      "suggested_generalization": "replacement text"
+    }
+  ]
+}
+
+Guidelines:
+- Mark exact dates, fine-grained locations, rare occupations, organizations,
+  schools, diagnoses, legal facts, family details, and rare events.
+- Prefer generalization over deletion when meaning can be preserved.
+- Do not add facts not present in the text.
+
+Text:
+"""
+{TEXT}
+"""
+

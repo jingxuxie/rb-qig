@@ -1,0 +1,33 @@
+method,category,match,count
+blanket_qi,citizenship phrasing,coarse,6
+blanket_qi,date or age cue,coarse,1
+blanket_qi,education institution or credential,coarse,3
+blanket_qi,education institution or credential,exact,1
+blanket_qi,gendered context,exact,3
+blanket_qi,location cue,exact,1
+blanket_qi,marital or bereavement context,exact,4
+blanket_qi,race or ethnicity variant,coarse,2
+blanket_qi,race or ethnicity variant,exact,1
+direct,citizenship phrasing,coarse,12
+direct,citizenship phrasing,exact,13
+direct,date or age cue,coarse,2
+direct,date or age cue,exact,36
+direct,education institution or credential,coarse,3
+direct,education institution or credential,exact,19
+direct,employment or armed-forces context,exact,1
+direct,gendered context,exact,52
+direct,location cue,exact,1
+direct,marital or bereavement context,coarse,1
+direct,marital or bereavement context,exact,39
+direct,race or ethnicity variant,coarse,5
+direct,race or ethnicity variant,exact,42
+rbqig_b4,citizenship phrasing,coarse,6
+rbqig_b4,citizenship phrasing,exact,1
+rbqig_b4,date or age cue,coarse,1
+rbqig_b4,education institution or credential,coarse,6
+rbqig_b4,employment or armed-forces context,coarse,1
+rbqig_b4,gendered context,exact,3
+rbqig_b4,location cue,exact,1
+rbqig_b4,marital or bereavement context,exact,3
+rbqig_b4,race or ethnicity variant,coarse,1
+rbqig_b4,race or ethnicity variant,exact,1

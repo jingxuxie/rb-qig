@@ -1,0 +1,16 @@
+{
+  "model": "gpt-5.4-nano",
+  "n_records": 1,
+  "estimated_cost_usd": 0.000654,
+  "usage": [
+    {
+      "id": "ratbench_english_0",
+      "from_cache": true,
+      "input_tokens": 1562,
+      "output_tokens": 273,
+      "total_tokens": 1835,
+      "estimated_cost_usd": 0.00065365,
+      "n_qi_spans": 7
+    }
+  ]
+}

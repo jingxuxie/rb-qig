@@ -1,0 +1,16 @@
+id,method,domain,label_preservation,llm_fact_preservation,semantic_utility_score,semantic_utility_score_0_to_5
+tab_echr_001-70759,direct,legal_case,1.0,0.85,0.8,4.0
+tab_echr_001-94981,direct,legal_case,1.0,0.9,1.0,5.0
+tab_echr_001-97110,direct,legal_case,1.0,0.9,0.8,4.0
+tab_echr_001-75466,direct,legal_case,1.0,0.8,0.8,4.0
+tab_echr_001-105006,direct,legal_case,1.0,0.7,0.8,4.0
+tab_echr_001-70759,blanket_qi,legal_case,1.0,0.75,0.8,4.0
+tab_echr_001-94981,blanket_qi,legal_case,1.0,0.7,0.6,3.0
+tab_echr_001-97110,blanket_qi,legal_case,1.0,0.7,0.6,3.0
+tab_echr_001-75466,blanket_qi,legal_case,1.0,0.55,0.6,3.0
+tab_echr_001-105006,blanket_qi,legal_case,1.0,0.66,0.6,3.0
+tab_echr_001-70759,rbqig_b4,legal_case,1.0,0.45,0.6,3.0
+tab_echr_001-94981,rbqig_b4,legal_case,1.0,0.8,0.8,4.0
+tab_echr_001-97110,rbqig_b4,legal_case,1.0,0.5,0.6,3.0
+tab_echr_001-75466,rbqig_b4,legal_case,1.0,0.6,0.6,3.0
+tab_echr_001-105006,rbqig_b4,legal_case,1.0,0.7,0.8,4.0

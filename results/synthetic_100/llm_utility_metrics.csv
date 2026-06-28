@@ -1,0 +1,4 @@
+method,n_records,label_preservation,llm_fact_preservation,semantic_utility_score,semantic_utility_score_0_to_5,api_calls,estimated_cost_usd
+direct,100,1.0,0.7528,0.832,4.16,94,0.022749
+blanket_qi,100,0.99,0.6909,0.768,3.84,100,0.028501
+rbqig_b4,100,1.0,0.7131,0.794,3.97,100,0.028859

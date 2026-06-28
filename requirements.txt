@@ -1,0 +1,8 @@
+# The initial pilot is Python-stdlib only.
+# Optional later dependencies:
+# openai
+# datasets
+# presidio-analyzer
+# presidio-anonymizer
+# click
+# sacrebleu

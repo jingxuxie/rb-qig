@@ -1,0 +1,5 @@
+source,method,metric,mean,ci_low,ci_high,n_records,n_boot,seed
+ratbench_d1_blind_safe_api_100_attacker_safe40,rbqig_b4,record_compromise_rate,0.0,0.0,0.0,40,5000,20260627
+ratbench_d1_blind_safe_api_100_attacker_safe40,rbqig_b4,exact_attribute_leakage,0.091667,0.03125,0.166667,40,5000,20260627
+ratbench_d1_blind_safe_api_100_attacker_safe40,rbqig_b4,coarse_attribute_leakage,0.1125,0.052083,0.183333,40,5000,20260627
+ratbench_d1_blind_safe_api_100_attacker_safe40,rbqig_b4,risk_weighted_leakage,0.087164,0.034462,0.152438,40,5000,20260627

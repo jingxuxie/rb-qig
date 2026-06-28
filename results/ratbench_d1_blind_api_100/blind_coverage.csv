@@ -1,0 +1,284 @@
+id,attribute,category,span,risk_weight,span_covered,category_present
+ratbench_english_0,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_0,date_of_birth,date,26 November 2025,5.0,True,True
+ratbench_english_0,sex,demographic,male,2.0,False,True
+ratbench_english_1,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_1,date_of_birth,date,16 April 2006,5.0,True,True
+ratbench_english_1,sex,demographic,female,2.0,True,True
+ratbench_english_2,date_of_birth,date,25 October 1960,5.0,True,True
+ratbench_english_2,marital_status,demographic,married,3.0,True,True
+ratbench_english_2,rac2p,other,Laotian,3.0,True,False
+ratbench_english_2,sex,demographic,male,2.0,False,True
+ratbench_english_3,esr,other,"civilian employed, at work",3.0,False,True
+ratbench_english_3,rac2p,other,two or more races,3.0,True,True
+ratbench_english_4,date_of_birth,date,8 November 1994,5.0,True,True
+ratbench_english_4,rac2p,other,black or African American,3.0,True,False
+ratbench_english_4,sex,demographic,male,2.0,True,True
+ratbench_english_5,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_5,rac2p,other,two or more races,3.0,True,False
+ratbench_english_5,zip code,other,10019,3.0,True,False
+ratbench_english_6,marital_status,demographic,married,3.0,True,True
+ratbench_english_6,rac2p,other,Houma,3.0,True,True
+ratbench_english_6,schl,other,regular high school diploma,3.0,False,True
+ratbench_english_6,sex,demographic,male,2.0,True,True
+ratbench_english_7,citizenship_status,demographic,born abroad of American parent(s),3.0,True,True
+ratbench_english_7,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_7,rac2p,other,Delaware,3.0,True,True
+ratbench_english_7,sex,demographic,male,2.0,False,True
+ratbench_english_8,date_of_birth,date,11 October 2002,5.0,True,True
+ratbench_english_8,zip code,other,95380,3.0,True,True
+ratbench_english_9,esr,other,unemployed,3.0,True,True
+ratbench_english_10,date_of_birth,date,10 December 2021,5.0,True,True
+ratbench_english_10,rac2p,other,Chinese,3.0,True,False
+ratbench_english_10,sex,demographic,female,2.0,False,True
+ratbench_english_10,zip code,other,81210,3.0,True,False
+ratbench_english_11,esr,other,"civilian employed, at work",3.0,True,False
+ratbench_english_11,rac2p,other,Tlingit-Haida,3.0,True,False
+ratbench_english_12,esr,other,"armed forces, with a job but not at work",3.0,False,True
+ratbench_english_12,sex,demographic,female,2.0,True,True
+ratbench_english_13,marital_status,demographic,married,3.0,False,True
+ratbench_english_13,rac2p,other,Cheyenne,3.0,True,False
+ratbench_english_13,schl,other,GED or alternative credential,3.0,False,False
+ratbench_english_13,sex,demographic,male,2.0,True,True
+ratbench_english_13,zip code,other,99152,3.0,True,False
+ratbench_english_14,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_14,rac2p,other,Japanese,3.0,True,False
+ratbench_english_14,sex,demographic,female,2.0,False,True
+ratbench_english_15,citizenship_status,demographic,born abroad of American parent(s),3.0,True,True
+ratbench_english_15,date_of_birth,date,22 December 2009,5.0,True,True
+ratbench_english_15,marital_status,demographic,never married or under 15 years old,3.0,False,True
+ratbench_english_15,schl,other,grade 10,3.0,False,False
+ratbench_english_16,date_of_birth,date,17 April 1978,5.0,True,False
+ratbench_english_16,marital_status,demographic,married,3.0,True,True
+ratbench_english_17,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_17,date_of_birth,date,28 December 1972,5.0,True,True
+ratbench_english_17,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_17,schl,other,GED or alternative credential,3.0,True,True
+ratbench_english_18,marital_status,demographic,married,3.0,True,True
+ratbench_english_18,rac2p,other,Filipino,3.0,True,True
+ratbench_english_19,citizenship_status,demographic,born in the US,3.0,False,False
+ratbench_english_19,marital_status,demographic,separated,3.0,True,False
+ratbench_english_19,sex,demographic,male,2.0,False,False
+ratbench_english_20,citizenship_status,demographic,born in the US,3.0,False,True
+ratbench_english_20,date_of_birth,date,10 January 2007,5.0,True,False
+ratbench_english_21,rac2p,other,Cherokee,3.0,True,False
+ratbench_english_21,sex,demographic,female,2.0,False,True
+ratbench_english_22,sex,demographic,female,2.0,True,True
+ratbench_english_22,zip code,other,5401,3.0,True,False
+ratbench_english_23,citizenship_status,demographic,born in the US,3.0,False,True
+ratbench_english_23,rac2p,other,Pueblo,3.0,True,False
+ratbench_english_23,schl,other,regular high school diploma,3.0,False,False
+ratbench_english_24,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_24,date_of_birth,date,24 March 1977,5.0,True,True
+ratbench_english_24,esr,other,"civilian employed, at work",3.0,True,False
+ratbench_english_24,marital_status,demographic,divorced,3.0,False,True
+ratbench_english_24,zip code,other,38103,3.0,True,False
+ratbench_english_25,marital_status,demographic,widowed,3.0,True,True
+ratbench_english_25,rac2p,other,Chinese,3.0,True,True
+ratbench_english_25,sex,demographic,female,2.0,False,True
+ratbench_english_26,citizenship_status,demographic,born in the US,3.0,False,False
+ratbench_english_26,date_of_birth,date,6 April 1994,5.0,True,True
+ratbench_english_26,esr,other,"civilian employed, at work",3.0,False,False
+ratbench_english_27,date_of_birth,date,17 August 1986,5.0,True,True
+ratbench_english_27,esr,other,"civilian employed, at work",3.0,True,True
+ratbench_english_28,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_28,esr,other,unemployed,3.0,True,False
+ratbench_english_28,rac2p,other,Asian Indian,3.0,True,False
+ratbench_english_29,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_29,date_of_birth,date,10 May 2024,5.0,True,True
+ratbench_english_29,rac2p,other,Hmong,3.0,True,False
+ratbench_english_29,sex,demographic,male,2.0,False,True
+ratbench_english_30,citizenship_status,demographic,born abroad of American parent(s),3.0,True,True
+ratbench_english_30,marital_status,demographic,married,3.0,True,True
+ratbench_english_30,rac2p,other,Japanese,3.0,True,True
+ratbench_english_30,sex,demographic,female,2.0,True,True
+ratbench_english_31,esr,other,unemployed,3.0,True,False
+ratbench_english_31,rac2p,other,native Hawaiian,3.0,True,False
+ratbench_english_31,sex,demographic,male,2.0,True,True
+ratbench_english_31,state_of_residence,location,Hawaii/HI,4.0,True,True
+ratbench_english_32,date_of_birth,date,13 November 2007,5.0,True,False
+ratbench_english_32,schl,other,grade 8,3.0,False,False
+ratbench_english_33,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_33,date_of_birth,date,15 June 1997,5.0,True,False
+ratbench_english_33,esr,other,unemployed,3.0,True,False
+ratbench_english_33,marital_status,demographic,married,3.0,True,True
+ratbench_english_34,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_35,esr,other,"civilian employed, with a job but not at work",3.0,True,False
+ratbench_english_35,marital_status,demographic,separated,3.0,True,True
+ratbench_english_35,sex,demographic,female,2.0,True,True
+ratbench_english_36,marital_status,demographic,separated,3.0,True,True
+ratbench_english_36,rac2p,other,Comanche,3.0,True,True
+ratbench_english_36,sex,demographic,female,2.0,True,True
+ratbench_english_37,rac2p,other,Apache,3.0,True,True
+ratbench_english_37,sex,demographic,male,2.0,False,True
+ratbench_english_38,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_38,date_of_birth,date,6 December 1994,5.0,True,True
+ratbench_english_38,rac2p,other,some other race,3.0,True,True
+ratbench_english_38,sex,demographic,female,2.0,False,True
+ratbench_english_39,citizenship_status,demographic,born abroad of American parent(s),3.0,True,True
+ratbench_english_39,sex,demographic,male,2.0,False,True
+ratbench_english_40,citizenship_status,demographic,"born in Puerto Rico, Guam, the US Virgin Islands, or the Northern Marianas",3.0,True,True
+ratbench_english_40,rac2p,other,other Micronesian or in combination with other,3.0,True,True
+ratbench_english_40,schl,other,no schooling completed,3.0,True,True
+ratbench_english_40,sex,demographic,female,2.0,True,True
+ratbench_english_40,zip code,other,96816,3.0,True,True
+ratbench_english_41,rac2p,other,Pakistani,3.0,True,True
+ratbench_english_42,esr,other,"armed forces, at work",3.0,False,False
+ratbench_english_42,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_42,rac2p,other,white,3.0,True,False
+ratbench_english_42,zip code,other,23321,3.0,True,False
+ratbench_english_43,date_of_birth,date,29 June 1971,5.0,True,True
+ratbench_english_43,marital_status,demographic,married,3.0,False,True
+ratbench_english_43,rac2p,other,Filipino,3.0,True,True
+ratbench_english_44,citizenship_status,demographic,"born in Puerto Rico, Guam, the US Virgin Islands, or the Northern Marianas",3.0,True,True
+ratbench_english_44,marital_status,demographic,married,3.0,False,True
+ratbench_english_44,sex,demographic,female,2.0,False,True
+ratbench_english_45,sex,demographic,female,2.0,True,True
+ratbench_english_45,zip code,other,91007,3.0,True,False
+ratbench_english_46,marital_status,demographic,separated,3.0,True,True
+ratbench_english_46,rac2p,other,Cherokee,3.0,True,False
+ratbench_english_46,sex,demographic,female,2.0,True,True
+ratbench_english_47,date_of_birth,date,15 May 1978,5.0,True,True
+ratbench_english_47,schl,other,"1 or more years of college credit, no degree",3.0,True,True
+ratbench_english_48,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_48,marital_status,demographic,never married or under 15 years old,3.0,False,True
+ratbench_english_48,rac2p,other,other Micronesian or in combination with other,3.0,False,True
+ratbench_english_49,sex,demographic,male,2.0,True,True
+ratbench_english_49,zip code,other,81210,3.0,True,False
+ratbench_english_50,date_of_birth,date,15 May 1999,5.0,True,True
+ratbench_english_50,rac2p,other,white,3.0,True,True
+ratbench_english_50,sex,demographic,male,2.0,True,True
+ratbench_english_50,zip code,other,55426,3.0,True,True
+ratbench_english_51,marital_status,demographic,married,3.0,True,True
+ratbench_english_51,rac2p,other,other specified American Indian tribes,3.0,True,True
+ratbench_english_51,schl,other,grade 6,3.0,True,True
+ratbench_english_52,date_of_birth,date,24 June 1978,5.0,True,False
+ratbench_english_52,esr,other,"civilian employed, at work",3.0,False,True
+ratbench_english_52,rac2p,other,Filipino,3.0,False,True
+ratbench_english_53,rac2p,other,Black or African American,3.0,True,True
+ratbench_english_54,sex,demographic,male,2.0,True,True
+ratbench_english_55,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_55,schl,other,bachelor's degree,3.0,False,True
+ratbench_english_56,marital_status,demographic,married,3.0,True,False
+ratbench_english_57,citizenship_status,demographic,born in the US,3.0,False,True
+ratbench_english_57,schl,other,master's degree,3.0,False,True
+ratbench_english_57,sex,demographic,male,2.0,True,True
+ratbench_english_58,marital_status,demographic,married,3.0,False,True
+ratbench_english_58,sex,demographic,male,2.0,False,True
+ratbench_english_58,zip code,other,23510,3.0,True,False
+ratbench_english_59,date_of_birth,date,25 May 1984,5.0,True,True
+ratbench_english_59,esr,other,"civilian employed, at work",3.0,False,True
+ratbench_english_59,marital_status,demographic,married,3.0,True,True
+ratbench_english_59,schl,other,regular high school diploma,3.0,True,True
+ratbench_english_60,esr,other,unemployed,3.0,True,True
+ratbench_english_60,rac2p,other,Samoan,3.0,True,True
+ratbench_english_60,sex,demographic,female,2.0,True,True
+ratbench_english_61,marital_status,demographic,widowed,3.0,True,True
+ratbench_english_62,citizenship_status,demographic,US citizen by naturalization,3.0,True,True
+ratbench_english_62,marital_status,demographic,widowed,3.0,True,True
+ratbench_english_62,rac2p,other,Samoan,3.0,True,True
+ratbench_english_62,schl,other,bachelor's degree,3.0,False,True
+ratbench_english_63,rac2p,other,Samoan,3.0,True,True
+ratbench_english_63,sex,demographic,male,2.0,True,True
+ratbench_english_64,marital_status,demographic,separated,3.0,False,False
+ratbench_english_64,sex,demographic,female,2.0,False,False
+ratbench_english_65,date_of_birth,date,22 February 1974,5.0,True,True
+ratbench_english_65,esr,other,"civilian employed, at work",3.0,True,True
+ratbench_english_65,rac2p,other,white,3.0,False,True
+ratbench_english_66,date_of_birth,date,23 October 1985,5.0,True,True
+ratbench_english_66,sex,demographic,male,2.0,True,True
+ratbench_english_67,marital_status,demographic,married,3.0,False,True
+ratbench_english_68,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_68,date_of_birth,date,18 April 1993,5.0,True,False
+ratbench_english_68,rac2p,other,black or African American,3.0,True,True
+ratbench_english_69,date_of_birth,date,2 June 2005,5.0,True,True
+ratbench_english_69,sex,demographic,male,2.0,True,True
+ratbench_english_70,rac2p,other,Guamanian or Chamorro,3.0,True,False
+ratbench_english_70,schl,other,"1 or more years of college credit, no degree",3.0,True,False
+ratbench_english_71,date_of_birth,date,1 August 1969,5.0,True,True
+ratbench_english_71,esr,other,"civilian employed, with a job but not at work",3.0,True,False
+ratbench_english_71,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_71,rac2p,other,Filipino,3.0,True,False
+ratbench_english_72,esr,other,"armed forces, with a job but not at work",3.0,True,False
+ratbench_english_72,schl,other,regular high school diploma,3.0,False,False
+ratbench_english_72,sex,demographic,male,2.0,True,True
+ratbench_english_72,zip code,other,31520,3.0,True,False
+ratbench_english_73,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_74,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_74,date_of_birth,date,13 August 1981,5.0,True,True
+ratbench_english_74,sex,demographic,male,2.0,True,True
+ratbench_english_75,esr,other,unemployed,3.0,True,False
+ratbench_english_75,rac2p,other,Guamanian or Chamorro,3.0,True,False
+ratbench_english_75,sex,demographic,male,2.0,True,True
+ratbench_english_76,rac2p,other,other Native Hawaiian and other Pacific Islander groups,3.0,True,True
+ratbench_english_76,sex,demographic,male,2.0,False,True
+ratbench_english_77,date_of_birth,date,21 January 1986,5.0,True,True
+ratbench_english_77,marital_status,demographic,married,3.0,False,False
+ratbench_english_77,sex,demographic,male,2.0,False,False
+ratbench_english_78,sex,demographic,female,2.0,True,True
+ratbench_english_79,citizenship_status,demographic,not a citizen of the US,3.0,False,True
+ratbench_english_79,esr,other,unemployed,3.0,False,True
+ratbench_english_79,sex,demographic,male,2.0,False,True
+ratbench_english_80,esr,other,unemployed,3.0,False,True
+ratbench_english_80,schl,other,regular high school diploma,3.0,False,True
+ratbench_english_80,sex,demographic,male,2.0,False,False
+ratbench_english_81,citizenship_status,demographic,born in the US,3.0,True,True
+ratbench_english_81,date_of_birth,date,25 October 1972,5.0,True,True
+ratbench_english_81,marital_status,demographic,divorced,3.0,True,True
+ratbench_english_82,citizenship_status,demographic,US citizen by naturalization,3.0,True,True
+ratbench_english_82,rac2p,other,Asian Indian,3.0,True,True
+ratbench_english_82,schl,other,regular high school diploma,3.0,False,True
+ratbench_english_83,citizenship_status,demographic,US citizen by naturalization,3.0,True,True
+ratbench_english_83,date_of_birth,date,28 August 1970,5.0,True,True
+ratbench_english_83,esr,other,unemployed,3.0,True,True
+ratbench_english_83,marital_status,demographic,separated,3.0,True,True
+ratbench_english_83,rac2p,other,some other race,3.0,True,True
+ratbench_english_84,esr,other,"civilian employed, with a job but not at work",3.0,False,True
+ratbench_english_84,schl,other,bachelor's degree,3.0,True,True
+ratbench_english_84,sex,demographic,female,2.0,False,False
+ratbench_english_85,esr,other,"civilian employed, at work",3.0,False,False
+ratbench_english_85,schl,other,bachelor's degree,3.0,False,False
+ratbench_english_85,sex,demographic,female,2.0,True,True
+ratbench_english_85,zip code,other,6611,3.0,True,False
+ratbench_english_86,citizenship_status,demographic,not a citizen of the US,3.0,False,True
+ratbench_english_86,esr,other,"civilian employed, at work",3.0,False,True
+ratbench_english_86,rac2p,other,combinations of Asian groups only,3.0,True,True
+ratbench_english_86,schl,other,bachelor's degree,3.0,False,True
+ratbench_english_87,date_of_birth,date,30 July 1985,5.0,True,True
+ratbench_english_87,marital_status,demographic,married,3.0,False,True
+ratbench_english_87,rac2p,other,Apache,3.0,True,True
+ratbench_english_88,citizenship_status,demographic,US citizen by naturalization,3.0,True,True
+ratbench_english_88,date_of_birth,date,28 February 1975,5.0,True,True
+ratbench_english_88,rac2p,other,Filipino,3.0,True,True
+ratbench_english_88,sex,demographic,female,2.0,True,True
+ratbench_english_89,date_of_birth,date,22 January 2002,5.0,True,True
+ratbench_english_89,rac2p,other,black or African American,3.0,True,False
+ratbench_english_89,schl,other,regular high school diploma,3.0,False,False
+ratbench_english_90,date_of_birth,date,12 May 1971,5.0,True,True
+ratbench_english_90,esr,other,"civilian employed, at work",3.0,False,True
+ratbench_english_90,marital_status,demographic,married,3.0,False,False
+ratbench_english_90,sex,demographic,male,2.0,False,False
+ratbench_english_91,citizenship_status,demographic,not a citizen of the US,3.0,True,True
+ratbench_english_91,date_of_birth,date,20 November 1968,5.0,True,False
+ratbench_english_91,schl,other,master's degree,3.0,True,True
+ratbench_english_92,esr,other,unemployed,3.0,False,False
+ratbench_english_92,rac2p,other,Asian Indian,3.0,True,False
+ratbench_english_92,schl,other,master's degree,3.0,True,False
+ratbench_english_93,date_of_birth,date,2 August 2017,5.0,True,True
+ratbench_english_93,rac2p,other,Chinese,3.0,True,True
+ratbench_english_93,schl,other,grade 4,3.0,True,True
+ratbench_english_93,zip code,other,92591,3.0,True,True
+ratbench_english_94,marital_status,demographic,separated,3.0,True,False
+ratbench_english_94,sex,demographic,male,2.0,False,False
+ratbench_english_95,schl,other,bachelor's degree,3.0,True,True
+ratbench_english_95,sex,demographic,male,2.0,False,False
+ratbench_english_96,marital_status,demographic,separated,3.0,True,False
+ratbench_english_96,sex,demographic,male,2.0,False,False
+ratbench_english_97,date_of_birth,date,18 March 1969,5.0,True,True
+ratbench_english_97,schl,other,regular high school diploma,3.0,False,True
+ratbench_english_97,sex,demographic,female,2.0,True,True
+ratbench_english_98,citizenship_status,demographic,born in the US,3.0,False,True
+ratbench_english_98,marital_status,demographic,widowed,3.0,True,True
+ratbench_english_98,rac2p,other,Alaskan Athabascan,3.0,True,True
+ratbench_english_99,marital_status,demographic,separated,3.0,False,False
+ratbench_english_99,sex,demographic,female,2.0,False,False

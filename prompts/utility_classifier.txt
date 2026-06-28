@@ -1,0 +1,16 @@
+You are evaluating whether a transformed synthetic document preserves
+task-relevant meaning.
+
+Choose exactly one label from the label list. Return only JSON.
+
+Labels:
+{LABELS}
+
+Text:
+"""
+{TRANSFORMED_TEXT}
+"""
+
+Return:
+{"label": "...", "confidence": 0.0}
+

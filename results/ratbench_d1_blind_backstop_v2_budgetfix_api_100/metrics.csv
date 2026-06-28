@@ -1,0 +1,7 @@
+method,n_records,direct_identifier_leakage,record_compromise_rate,exact_attribute_leakage,coarse_attribute_leakage,risk_weighted_leakage,label_preservation,utility_fact_preservation,token_change_rate,api_calls,estimated_cost_usd
+none,100,0.91,0.39,0.9892,0.9892,0.9888,1.0,1.0,0.0,0,0.0
+direct,100,0.0,0.39,0.9437,0.9437,0.943,1.0,1.0,0.0088,0,0.0
+blanket_qi,100,0.0,0.0,0.0308,0.0308,0.0311,1.0,1.0,0.1077,0,0.0
+rbqig_b2,100,0.0,0.0,0.0408,0.0475,0.0444,1.0,1.0,0.1036,0,0.0
+rbqig_b4,100,0.0,0.0,0.0458,0.0642,0.054,1.0,1.0,0.101,0,0.0
+rbqig_b6,100,0.0,0.0,0.0583,0.0867,0.0716,1.0,1.0,0.0986,0,0.0

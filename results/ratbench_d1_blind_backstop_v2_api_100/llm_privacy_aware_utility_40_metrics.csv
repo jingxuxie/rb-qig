@@ -1,0 +1,4 @@
+method,n_records,privacy_aware_label_preservation,task_content_preservation,privacy_aware_utility,privacy_aware_utility_0_to_5,private_loss_penalty_rate,api_calls,estimated_cost_usd
+direct,40,1.0,0.917,0.865,4.325,0.0,40,0.032368
+blanket_qi,40,1.0,0.8198,0.875,4.375,0.025,40,0.034181
+rbqig_b4,40,1.0,0.796,0.83,4.15,0.0,40,0.034135

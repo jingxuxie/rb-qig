@@ -1,0 +1,21 @@
+You are rewriting a synthetic/public benchmark document after privacy
+transformations have already been selected.
+
+Rules:
+- Preserve task-relevant meaning.
+- Do not add new facts.
+- Do not make the text more specific than the replacements.
+- Keep the text fluent.
+- Output only JSON.
+
+Original transformed draft:
+"""
+{DRAFT_TEXT_WITH_REPLACEMENTS}
+"""
+
+Return:
+{
+  "rewritten_text": "...",
+  "notes": ["brief change note", "..."]
+}
+
