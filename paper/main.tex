@@ -28,7 +28,7 @@
 \begin{abstract}
 Sensitive text corpora are valuable for retrieval, evaluation, and
 post-training adaptation of foundation-model systems, but common
-de-identification pipelines still center on direct personally identifying
+de-identification pipelines still center on direct personally identifiable
 information (PII): names, emails, phone numbers, addresses, and account
 numbers. This is necessary but incomplete. A record with no explicit name can
 still reveal sensitive attributes through quasi-identifiers such as exact
@@ -46,7 +46,7 @@ leave substantial residual inference risk, while explicit quasi-identifier
 transformation sharply reduces measured leakage. The strongest utility result
 is controlled: on synthetic records, RB-QIG preserves far more utility facts
 than blanket quasi-identifier redaction at a nonzero but much lower leakage
-level. Public utility is more mixed, and stronger GPT-5.5 attackers recover
+level. Public utility is more mixed, and a stronger GPT-5.5 attacker recovers
 more from all methods, so RB-QIG should not be read as an anonymization
 guarantee. Instead, the result is a practical argument for evaluating what
 capable models can still infer, not only which explicit PII spans were
@@ -66,7 +66,7 @@ direct identifiers.
 
 This paper asks what remains after that step. A sentence such as ``a
 34-year-old oncology infusion pharmacist at a small startup in Asheville
-called about a brother's rare condition after an April 2025 surgery'' can be
+called about a sibling's rare condition after an April 2025 surgery'' can be
 name-free and still highly revealing. The risk is not a single missed token; it
 is the combination of age, job, location, relationship, date, and rare event.
 Classical privacy work formalized this linkage problem through
@@ -126,7 +126,8 @@ attackers, stronger-attacker checks, and utility diagnostics; and
 sensitive attributes remain inferable from relational, lexical, and contextual
 cues.
 \end{itemize}
-
+We treat RB-QIG as an auditable transformation and evaluation protocol, not as
+a legal anonymization procedure or a claim of state-of-the-art de-identification.
 
 \section{Background}
 
@@ -141,7 +142,7 @@ cultural cues. We use \emph{sensitive attribute} for the attribute an attacker
 tries to recover, such as sex, race/ethnicity, citizenship, marital status,
 education, employment, or a domain-specific clinical/legal fact.
 
-\paragraph{Why text is harder than tables.}
+\paragraph{Why text is harder than structured records.}
 Classical anonymization methods were developed largely for structured records,
 where each row has known columns and generalization can be specified over
 attribute hierarchies \cite{sweeney2002kanonymity,machanavajjhala2007ldiversity,li2007tcloseness}.
@@ -239,12 +240,12 @@ semantic abstractions are acceptable.
 \subsection{Baselines}
 
 We compare RB-QIG against conceptual and practical baselines:
-\emph{none} (unchanged text), \emph{direct redaction} (direct identifiers only),
-\emph{naive LLM direct} (an LLM instructed to remove identifying information
-while preserving meaning), \emph{blanket QI redaction} (all QIs become typed
-placeholders), and a \emph{Presidio-style pattern baseline}. The pattern
-baseline is a practical lower-bound diagnostic, not a full production Presidio
-deployment.
+\emph{no transformation} (unchanged text), \emph{direct redaction} (direct
+identifiers only), \emph{naive LLM sanitizer} (an LLM instructed to remove
+identifying information while preserving meaning), \emph{blanket QI redaction}
+(all QIs become typed placeholders), and a \emph{Presidio-style pattern
+baseline}. The pattern baseline is a practical lower-bound diagnostic, not a
+full production Presidio deployment.
 
 \section{Experiments}
 
@@ -272,7 +273,7 @@ measured with utility-fact preservation in the controlled setting, semantic
 utility in LLM-judge settings, and annotation-derived QI specificity as a
 narrow no-API proxy for whether typed/generalized semantics survive. To keep
 the main paper readable, the results section emphasizes headline patterns; the
-appendix contains the detailed numeric tables.
+generated artifacts contain the detailed numeric tables.
 
 \begin{figure}[t]
 \centering
@@ -302,7 +303,7 @@ Does direct PII redaction suffice? &
 No. RAT-Bench direct redaction leaves high LLM-attacker leakage. &
 Sensitive attributes remain inferable from QIs and context. \\
 Can RB-QIG reduce residual risk? &
-Yes. RB-QIG sharply lowers leakage relative to direct and naive LLM redaction. &
+Yes. RB-QIG sharply lowers leakage relative to direct redaction and naive LLM sanitization. &
 Explicit QI transformation is necessary for LLM-ready text. \\
 Is RB-QIG more private than blanket QI redaction? &
 No clear evidence. They are usually tied under LLM attackers. &
@@ -318,7 +319,7 @@ Residual risk is real; robust evaluation needs strong attackers. \\
 \endgroup
 \end{table}
 
-\paragraph{Result 1: direct PII redaction is the wrong endpoint.}
+\paragraph{Result 1: direct PII redaction is an insufficient endpoint.}
 Across the RAT-Bench pilots, removing direct identifiers leaves substantial
 recoverable information. The target-aware LLM attacker still recovers many
 attributes after direct redaction, and the blind public setting shows the same
@@ -330,10 +331,10 @@ PII removal is a first pass, not a complete transformation.
 The cleanest privacy--utility result is the synthetic control
 (Figure~\ref{fig:frontier}). Direct redaction preserves the utility facts but
 leaves QI leakage. Blanket QI redaction removes measured leakage but discards
-much of the useful semantics. RB-QIG balanced sits between these extremes:
-it greatly reduces leakage while preserving substantially more utility facts
-than blanket redaction. This is the paper's strongest positive utility claim,
-and it should stay scoped to the controlled setting.
+much of the useful semantics. RB-QIG balanced sits between these extremes: it
+greatly reduces leakage while preserving substantially more utility facts than
+blanket redaction. This is the paper's strongest positive utility claim, and
+it should stay scoped to the controlled setting.
 
 \paragraph{Result 3: public utility is the caveat, not the headline.}
 On blind public RAT-Bench, RB-QIG and blanket redaction are similar under the
@@ -342,7 +343,7 @@ attribute-level fluent diagnostics did not convert this into a clear public
 utility win. The text-quality audit suggests that surface fluency alone is not
 the missing ingredient: cleaner phrase-level rewrites can still remove the
 facts needed for hidden-label utility. This points toward a more difficult
-future direction: task-aware generalization rather than prettier replacement
+future direction: task-aware generalization rather than more fluent replacement
 phrases.
 
 \paragraph{Result 4: stronger attackers raise leakage but preserve the
@@ -357,10 +358,10 @@ is not an anonymization guarantee.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figure/figure_3.png}
-\caption{Attacker robustness on blind RAT-Bench. Bars are for
-low-cost, mini, and GPT-5.5 attackers with sample sizes shown in the legend.
-Stronger attackers raise absolute leakage, but direct redaction remains much
-leakier than RB-QIG or blanket QI redaction.}
+\caption{Attacker robustness on blind RAT-Bench. Bars are for low-cost, mini,
+and GPT-5.5 attackers with sample sizes shown in the legend. Stronger attackers
+raise absolute leakage, but direct redaction remains much leakier than RB-QIG
+or blanket QI redaction.}
 \label{fig:robustness}
 \end{figure}
 
@@ -377,8 +378,8 @@ depending on the recipient, task, and review process.
 \includegraphics[width=\linewidth]{figure/figure_4.png}
 \caption{Budget frontier and domain transfer. Deterministic budget sweeps on
 blind RAT-Bench and TAB show that looser RB-QIG budgets preserve more
-annotation-derived QI specificity at higher leakage, while blanket QI
-redaction stays low-specificity.}
+annotation-derived QI specificity at higher leakage, while blanket QI redaction
+stays low-specificity.}
 \label{fig:budget}
 \end{figure}
 
@@ -424,13 +425,16 @@ Placeholder cue & typed demographic placeholder in context & the placeholder its
 
 \section{Limitations and Ethics}
 
-The strongest utility result is synthetic and controlled;
-public utility preservation remains mixed. The blind extractor and deterministic backstop improve
-coverage, yet blind QI extraction and task-aware rewriting remain open
-problems. LLM attackers and utility judges are model-dependent and may under- or over-estimate real adversaries or human
-utility needs. All experiments use synthetic or public benchmark data. We do
-not attempt to identify real people or infer private attributes about
-individuals.
+RB-QIG is not an anonymization guarantee and should not be used as a legal or
+compliance claim. The strongest utility result is synthetic and controlled;
+public utility preservation remains mixed. The target-aware setting isolates
+transformation behavior under known attributes, but it is not a deployment
+scenario. The blind extractor and deterministic backstop improve coverage, yet
+blind QI extraction and task-aware rewriting remain open problems. LLM
+attackers and utility judges are model-dependent and may under- or overestimate
+real adversaries or human utility needs. All experiments use synthetic or
+public benchmark data. We do not attempt to identify real people or infer
+private attributes about individuals.
 
 \section{Conclusion}
 
@@ -444,7 +448,6 @@ reduces that risk; controlled utility can be preserved better than blanket
 redaction; and blind, task-aware utility preservation remains the main open
 problem. Responsible data enablement should therefore evaluate what capable
 models can still infer, not only what explicit PII spans were removed.
-
 
 \bibliographystyle{colm2026_conference}
 \bibliography{references}
