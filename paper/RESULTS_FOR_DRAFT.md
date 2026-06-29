@@ -10,16 +10,16 @@ The current evidence supports these claims:
 2. A naive LLM sanitizer is not enough. It lowers target-aware RAT-Bench LLM-attacker risk-weighted leakage to 46.0%, but remains far leakier than RB-QIG balanced at 5.7%.
 3. RB-QIG substantially reduces residual inference risk relative to direct redaction and naive LLM sanitization. On the same public pilot, RB-QIG balanced reduces deterministic risk-weighted leakage to 28.6% and LLM-attacker risk-weighted leakage to 5.7%.
 4. A 30-row RAT-Bench difficulty-2 smoke supports the same LLM-attacker story on harder demographic-heavy rows: direct 70.8%, naive LLM sanitizer 56.9%, RB-QIG balanced 13.1% risk-weighted leakage.
-5. Stronger-attacker checks are harsher on privacy methods but preserve the direct-redaction failure story. A 20-record target-aware `gpt-5.4-mini` smoke gives direct 77.3%, naive LLM sanitizer 40.2%, RB-QIG balanced 18.0%, and blanket QI 16.0% risk-weighted leakage. A 50-record blind-backstop GPT-5.5 check gives direct 87.8% [81.7, 93.1], RB-QIG balanced 31.9% [24.7, 39.5], and blanket QI 29.7% [22.5, 37.6]; direct minus RB-QIG is +55.9 points [45.0, 65.7], while RB-QIG minus blanket is statistically tied at +2.2 points [-4.7, 9.0].
+5. Stronger-attacker checks are harsher on privacy methods but preserve the direct-redaction failure story. A 20-record target-aware `gpt-5.4-mini` smoke gives direct 77.3%, naive LLM sanitizer 40.2%, RB-QIG balanced 18.0%, and blanket QI 16.0% risk-weighted leakage. A 50-record blind-backstop GPT-5.5 check gives direct 87.8% [81.7, 93.1], RB-QIG balanced 31.9% [24.7, 39.5], and blanket QI 29.7% [22.5, 37.6]; direct minus RB-QIG is +55.9 points [45.0, 65.7], while RB-QIG minus blanket is statistically tied at +2.2 points [-4.7, 9.0]. A 20-record blind `gpt-5.4-mini` check also preserves the ordering: direct 75.0% [60.9, 87.5], RB-QIG balanced 14.8% [8.2, 21.9], blanket QI 16.8% [9.0, 25.7]. Pairwise attacker agreement is moderate: nano-vs-mini exact/coarse agreement is 88.9%/82.8%, mini-vs-GPT-5.5 is 83.3%/80.0%, and nano-vs-GPT-5.5 is 76.7%/71.9%.
 6. On controlled synthetic records, RB-QIG exposes a tunable privacy-utility frontier. RB-QIG balanced leaves 23.6% risk-weighted leakage while preserving 71.7% utility facts; blanket QI redaction removes leakage but preserves only 43.3% utility facts.
 7. A cached LLM utility judge gives a more forgiving semantic view of synthetic utility, but shows only a modest RB-QIG balanced edge over blanket QI: 79.4% vs 76.8%, paired +2.6 points [0.6, 4.8].
-8. Public RAT-Bench utility judging is a caveat, not a win: on budget-fixed blind-backstop public outputs, RB-QIG balanced and blanket QI are statistically tied on semantic utility, 62.2% versus 62.6%, paired -0.4 points [-4.2, 3.4]. A 50-record privacy-aware utility screen is negative for RB-QIG versus blanket: -6.4 points [-10.0, -2.8]. A safe-generalization v2 diagnostic removes literal instruction strings but still trails blanket by -5.6 points [-9.2, -1.6]. A budgeted placeholder fallback improves over current RB-QIG but remains tied/below blanket and loses the specificity advantage.
+8. Public RAT-Bench utility judging is a caveat, not a win: on budget-fixed blind-backstop public outputs, RB-QIG balanced and blanket QI are statistically tied on semantic utility, 62.2% versus 62.6%, paired -0.4 points [-4.2, 3.4]. A 50-record privacy-aware utility screen is negative for RB-QIG versus blanket: -6.4 points [-10.0, -2.8]. A safe-generalization v2 diagnostic removes literal instruction strings but still trails blanket by -5.6 points [-9.2, -1.6]. A budgeted placeholder fallback improves over current RB-QIG but remains tied/below blanket and loses the specificity advantage. A context-aware fluent rewrite fixes surface artifacts and preserves specificity, but still does not beat blanket or placeholder on privacy-aware utility. A no-API same-text consistency audit shows the method-labeled privacy-aware utility judge is too noisy for fine-grained public-method ranking: 31 of 69 exact-identical transformed-text method pairs receive different utility scores. A corrected method-blind deduplicated rerun removes same-text disagreements but keeps the negative conclusion: balanced minus blanket is -4.0 points [-7.2, -0.4] and fluent minus blanket is -5.2 points [-8.8, -1.2]. An attribute-level fluent diagnostic improves no-API specificity but is worse on hidden-label utility: attr-fluent minus blanket is -12.0 points [-16.0, -8.0] and attr-fluent minus fluent is -6.8 points [-11.2, -2.4]. A no-API text-quality audit shows this is not just a surface-artifact problem: attr-fluent has the lowest artifact score but worst utility, and longer/generalized replacements correlate negatively with utility in the pooled audit.
 9. A no-API annotation-derived specificity diagnostic gives a narrow public utility signal: RB-QIG balanced retains more typed/generalized QI semantics than blanket placeholders by +6.8 points [4.7, 9.2] on blind RAT-Bench and +6.2 points [5.5, 6.9] on TAB.
 10. A blind public RAT-Bench diagnostic confirms that deployment-style extraction is the main open problem but also gives a cheap improvement path: an improved generic backstop raises blind span coverage from 72.8% to 99.6%; budget-fixed backstopped blind RB-QIG balanced reduces deterministic risk-weighted leakage from direct redaction by 88.9 points [85.0, 92.5]. Under an LLM attacker, budget-fixed backstopped blind RB-QIG balanced reduces risk-weighted leakage from 78.1% [73.3, 82.9] to 6.4% [3.9, 9.1] and is statistically tied with blanket QI.
 11. A no-API public deterministic budget frontier supports the budget knob as an interpretable control: on blind RAT-Bench, budgets 2/4/6 give 4.4%/5.4%/7.2% risk-weighted leakage and 30.1%/33.2%/36.4% QI specificity; on TAB, budgets 2/4/6 give 7.8%/12.3%/20.4% leakage and 28.1%/31.2%/34.3% specificity.
 12. The pairwise-combination-risk ablation is negative/tied under the balanced budget: `rbqig_b4_no_combo` produces identical transformed text and change logs to `rbqig_b4` on synthetic 100, blind RAT-Bench 100, and TAB 30. Do not claim the pairwise term is independently validated by this pilot.
 13. A 40-record public LLM budget-variant smoke does not justify additional API budget for a full LLM budget sweep: on the same first 40 blind-backstop rows, RB-QIG balanced has lower LLM-attacker risk than strict or utility-budget RB-QIG with no semantic-utility loss versus strict.
-14. A 30-document TAB ECHR deterministic screen gives a second-domain residual-risk diagnostic: direct redaction leaves 99.8% risk-weighted leakage, while RB-QIG balanced lowers it to 12.3% [9.2, 15.7]. A 10-document TAB legal-task LLM utility screen is inconclusive: blanket QI, RB-QIG balanced, and RB-QIG utility all score 68.0% [62.0, 74.0]; RB-QIG balanced minus blanket is 0.0 points [-10.0, 10.0], and RB-QIG utility minus blanket is 0.0 points [-8.0, 8.0]. A legal-role replacement variant is also negative: it lowers deterministic RB-QIG leakage to 8.3% but scores 62.0% legal-task utility, -6.0 points [-14.0, 2.0] versus blanket QI.
+14. A 30-document TAB ECHR deterministic screen gives a second-domain residual-risk diagnostic: direct redaction leaves 99.8% risk-weighted leakage, while RB-QIG balanced lowers it to 12.3% [9.2, 15.7]. A bounded 20-document TAB legal-task LLM utility screen is negative/tied rather than a utility win: blanket QI scores 73.0% [69.0, 77.0], RB-QIG balanced scores 71.0% [67.0, 75.0], and RB-QIG utility scores 71.0% [67.0, 75.0]. RB-QIG balanced minus blanket is -2.0 points [-8.0, 4.0], and RB-QIG utility minus blanket is -2.0 points [-7.0, 3.0]. A legal-role replacement variant is also negative: it lowers deterministic RB-QIG leakage to 8.3% but scores 62.0% legal-task utility, -6.0 points [-14.0, 2.0] versus blanket QI.
 15. A Presidio-style pattern-only baseline is weaker than the oracle-assisted direct baseline: on RAT-Bench it leaves 37.0% direct-ID leakage and 85.0% risk-weighted leakage; on TAB it leaves 100.0% direct-ID leakage because legal names and case identifiers are not common PII patterns.
 16. The hardest residual failures are lexical and relational variants: widowhood from bereavement cues, sex from gendered language, education from school-name mentions, citizenship from non-citizen phrasing, and employment or armed-forces status from context.
 
@@ -86,6 +86,11 @@ Key intervals use a nonparametric paired bootstrap over record IDs with 5,000 re
 | Blind RAT-Bench GPT-5.5 blanket QI risk-weighted leak | 29.7% | [22.5%, 37.6%] |
 | Blind RAT-Bench GPT-5.5 direct minus RB-QIG balanced | +55.9 pts | [+45.0, +65.7] |
 | Blind RAT-Bench GPT-5.5 RB-QIG minus blanket QI | +2.2 pts | [-4.7, +9.0] |
+| Blind RAT-Bench mini direct risk-weighted leak | 75.0% | [60.9%, 87.5%] |
+| Blind RAT-Bench mini RB-QIG balanced risk-weighted leak | 14.8% | [8.2%, 21.9%] |
+| Blind RAT-Bench mini blanket QI risk-weighted leak | 16.8% | [9.0%, 25.7%] |
+| Blind RAT-Bench mini direct minus RB-QIG balanced | +60.2 pts | [+47.2, +72.2] |
+| Blind RAT-Bench mini RB-QIG minus blanket QI | -2.0 pts | [-6.3, +1.1] |
 | Blind RAT-Bench LLM utility direct semantic utility | 86.2% | [83.2%, 88.8%] |
 | Blind RAT-Bench LLM utility blanket QI semantic utility | 62.6% | [59.2%, 66.0%] |
 | Blind RAT-Bench LLM utility RB-QIG balanced semantic utility | 62.2% | [58.8%, 65.2%] |
@@ -99,6 +104,25 @@ Key intervals use a nonparametric paired bootstrap over record IDs with 5,000 re
 | Blind RAT-Bench placeholder fallback privacy-aware utility | 84.8% | [81.6%, 88.0%] |
 | Blind RAT-Bench placeholder fallback minus RB-QIG balanced utility | +3.2 pts | [-0.8, +7.2] |
 | Blind RAT-Bench placeholder fallback minus blanket utility | -3.2 pts | [-7.2, +0.8] |
+| Blind RAT-Bench fluent rewrite privacy-aware utility | 83.2% | [79.6%, 86.8%] |
+| Blind RAT-Bench fluent rewrite minus RB-QIG balanced utility | +1.6 pts | [-2.8, +6.4] |
+| Blind RAT-Bench fluent rewrite minus placeholder utility | -1.6 pts | [-6.4, +3.2] |
+| Blind RAT-Bench fluent rewrite minus blanket utility | -4.8 pts | [-9.6, +0.4] |
+| Blind RAT-Bench hidden-label blanket QI privacy-aware utility | 89.2% | [86.4%, 92.4%] |
+| Blind RAT-Bench hidden-label RB-QIG balanced privacy-aware utility | 85.2% | [82.8%, 88.0%] |
+| Blind RAT-Bench hidden-label fluent privacy-aware utility | 84.0% | [80.8%, 87.2%] |
+| Blind RAT-Bench hidden-label attr-fluent privacy-aware utility | 77.2% | [73.2%, 81.2%] |
+| Blind RAT-Bench hidden-label placeholder privacy-aware utility | 87.6% | [84.8%, 90.4%] |
+| Blind RAT-Bench hidden-label RB-QIG balanced minus blanket utility | -4.0 pts | [-7.2, -0.4] |
+| Blind RAT-Bench hidden-label fluent minus blanket utility | -5.2 pts | [-8.8, -1.2] |
+| Blind RAT-Bench hidden-label attr-fluent minus blanket utility | -12.0 pts | [-16.0, -8.0] |
+| Blind RAT-Bench hidden-label attr-fluent minus fluent utility | -6.8 pts | [-11.2, -2.4] |
+| Blind RAT-Bench hidden-label placeholder minus blanket utility | -1.6 pts | [-4.4, +1.2] |
+| TAB legal utility blanket QI | 73.0% | [69.0%, 77.0%] |
+| TAB legal utility RB-QIG balanced | 71.0% | [67.0%, 75.0%] |
+| TAB legal utility RB-QIG utility | 71.0% | [67.0%, 75.0%] |
+| TAB legal utility RB-QIG balanced minus blanket | -2.0 pts | [-8.0, +4.0] |
+| TAB legal utility RB-QIG utility minus blanket | -2.0 pts | [-7.0, +3.0] |
 | Blind synthetic RB-QIG balanced risk-weighted leak | 5.2% | [1.7%, 9.7%] |
 | Blind synthetic RB-QIG balanced utility facts | 43.3% | [35.0%, 51.7%] |
 | Blind synthetic RB-QIG balanced minus blanket utility facts | +7.2 pts | [+3.3, +11.7] |
@@ -202,6 +226,50 @@ Source: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_utility_met
 
 Interpret this as a public utility caveat. Both privacy methods lose substantial semantic utility relative to direct redaction, and RB-QIG balanced is statistically tied with blanket QI on semantic utility: -0.4 points [-4.2, +3.4].
 
+## Blind Public RAT-Bench Fluent Rewrite Diagnostics
+
+Sources:
+
+- `results/fluent_variant_20260628/report.md`
+- `results/attr_fluent_variant_20260628/report.md`
+
+| Method | Deterministic risk-weighted leak | QI specificity | Privacy-aware utility |
+|---|---:|---:|---:|
+| Blanket QI | 3.1% | 26.4% | 89.2% |
+| RB-QIG balanced | 5.4% | 33.2% | 85.2% |
+| RB-QIG fluent | 4.1% | 32.9% | 84.0% |
+| RB-QIG attr-fluent | 4.1% | 38.1% | 77.2% |
+| RB-QIG placeholder | 4.1% | 27.1% | 87.6% |
+
+Interpret this as a closed method diagnostic, not a promoted result. Fluent
+rewriting removes the visible instruction-string and grammar artifacts while
+preserving most of RB-QIG's specificity advantage over typed placeholders. It
+does not rescue public utility: the corrected hidden-label deduplicated rerun
+has no same-text disagreements and still keeps fluent below blanket by -5.2
+points [-8.8, -1.2]. Attribute-level fluent budgeting raises no-API
+specificity to 38.1%, but worsens hidden-label utility to 77.2%; attr-fluent
+minus blanket is -12.0 points [-16.0, -8.0]. Treat local phrase rewrites as a
+closed branch unless a stronger task-aware rewriting objective is added.
+
+## Blind Public RAT-Bench Text-Quality Audit
+
+Source: `results/text_quality_audit_20260628/report.md`
+
+| Method | Hidden-label utility | Task content | Surface artifact | Placeholders / 1k tokens | Generalized changes |
+|---|---:|---:|---:|---:|---:|
+| Blanket QI | 89.2% | 80.1% | 0.591 | 38.4 | 0.0% |
+| RB-QIG balanced | 85.2% | 77.9% | 0.564 | 32.8 | 11.4% |
+| RB-QIG fluent | 84.0% | 78.6% | 0.539 | 32.7 | 11.4% |
+| RB-QIG attr-fluent | 77.2% | 74.9% | 0.421 | 22.6 | 37.4% |
+| RB-QIG placeholder | 87.6% | 79.5% | 0.577 | 36.5 | 0.0% |
+
+Interpret this as a spending gate. Lower local surface-artifact scores do not
+predict higher hidden-label utility: attr-fluent is best on the artifact proxy
+but worst on utility. Pooled correlations are negative for longer replacements
+(r=-0.312) and more generalized changes (r=-0.288) with privacy-aware utility.
+Another phrase-level rewrite is not worth an API utility run unless it first
+beats placeholder on this no-API audit while preserving RB-QIG specificity.
+
 ## Figures
 
 - Synthetic privacy-utility frontier: `results/synthetic_100/figures/privacy_utility_frontier.svg`
@@ -215,6 +283,9 @@ Interpret this as a public utility caveat. Both privacy methods lose substantial
 - Blind RAT-Bench LLM attacker bootstrap report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_bootstrap_report.md`
 - Blind RAT-Bench GPT-5.5 attacker metrics: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_gpt55_metrics.csv`
 - Blind RAT-Bench GPT-5.5 attacker bootstrap report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_gpt55_bootstrap_report.md`
+- Blind RAT-Bench mini attacker metrics: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_mini20_metrics.csv`
+- Blind RAT-Bench mini attacker bootstrap report: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_mini20_bootstrap_report.md`
+- Blind RAT-Bench multi-model attacker agreement: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/attacker_agreement_multimodel_report.md`
 - Blind RAT-Bench LLM failure taxonomy: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_failure_taxonomy.md`
 - Blind RAT-Bench figures: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/figures/`
 - LLM-attacker outputs with naive sanitizer: `results/ratbench_d1_api_100/llm_attacker_outputs_with_llm_direct.jsonl`
@@ -231,6 +302,13 @@ Interpret this as a public utility caveat. Both privacy methods lose substantial
 - Blind RAT-Bench privacy-aware utility screen: `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/privacy_aware_utility_50_report.md`
 - Blind RAT-Bench safe-generalization v2 diagnostic: `results/ratbench_d1_blind_backstop_v2_safe_budgetfix_api_100/safe_generalization_v2_report.md`
 - Blind RAT-Bench placeholder fallback diagnostic: `results/placeholder_variant_20260628/report.md`
+- Blind RAT-Bench fluent rewrite diagnostic: `results/fluent_variant_20260628/report.md`
+- Blind RAT-Bench utility-judge consistency audit: `results/fluent_variant_20260628/utility_judge_consistency_report.md`
+- Blind RAT-Bench hidden-label deduplicated utility screen: `results/fluent_variant_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_privacy_aware_utility_50_hidden_dedup_bootstrap_report.md`
+- Blind RAT-Bench hidden-label utility consistency audit: `results/fluent_variant_20260628/utility_judge_consistency_hidden_dedup_report.md`
+- Blind RAT-Bench attr-fluent diagnostic: `results/attr_fluent_variant_20260628/report.md`
+- Blind RAT-Bench attr-fluent hidden-label utility screen: `results/attr_fluent_variant_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_privacy_aware_utility_50_hidden_dedup_bootstrap_report.md`
+- Blind RAT-Bench text-quality audit: `results/text_quality_audit_20260628/report.md`
 - Blind RAT-Bench budget-variant smoke report: `results/ratbench_d1_blind_backstop_api_100/budget_variant_smoke_report.md`
 - Priority 0 follow-up report: `results/followup_priority0_20260628/report.md`
 - Priority 0 blind RAT-Bench deterministic metrics: `results/followup_priority0_20260628/ratbench_d1_blind_backstop_v2_budgetfix_api_100/metrics.csv`
@@ -240,7 +318,7 @@ Interpret this as a public utility caveat. Both privacy methods lose substantial
 - TAB ECHR deterministic screen: `results/tab_echr_dev_30/tab_screen_report.md`
 - TAB ECHR metrics: `results/tab_echr_dev_30/metrics.csv`
 - TAB ECHR bootstrap report: `results/tab_echr_dev_30/bootstrap_report.md`
-- TAB ECHR legal-task LLM utility screen: `results/tab_echr_dev_30/llm_legal_utility_10_with_b6_bootstrap_report.md`
+- TAB ECHR legal-task LLM utility screen: `results/tab_echr_dev_30/llm_legal_utility_20_with_b6_bootstrap_report.md`
 - TAB legal-role diagnostic: `results/tab_echr_dev_30_legal_role/legal_role_screen_report.md`
 - Presidio-style pattern baseline report: `results/presidio_pattern_baseline_report.md`
 - Presidio-style RAT-Bench metrics: `results/presidio_pattern_ratbench_d1_100/metrics.csv`
@@ -255,7 +333,7 @@ Interpret this as a public utility caveat. Both privacy methods lose substantial
 - Reviewer-facing stress test: `paper/REVIEWER_STRESS_TEST.md`
 - LaTeX manuscript source: `paper/main.tex`
 - Bibliography: `paper/references.bib`
-- Compiled 5-page COLM PDF: `paper/main.pdf`
+- Compiled COLM PDF: `paper/main.pdf`
 
 ## Recommended Paper Framing
 
@@ -265,7 +343,7 @@ Use a two-part empirical story:
 2. Public RAT-Bench pilot: confirms that a low-cost LLM attacker can infer many target attributes after direct redaction and after a naive LLM sanitizer, and that RB-QIG-style quasi-identifier handling greatly reduces this residual risk.
 3. Stronger-attacker caveat: GPT-5.5 recovers substantially more from both RB-QIG and blanket QI than the cheaper attacker. The direct-to-RB-QIG reduction survives, but the result argues against any near-zero residual-risk claim.
 4. Synthetic LLM utility judge: gives a more semantic utility read. It supports only a modest RB-QIG balanced edge over blanket QI, which is useful because it prevents overclaiming from the stricter deterministic fact metric alone.
-5. Public LLM utility judge: gives the counterweight. On budget-fixed blind-backstop RAT-Bench, RB-QIG balanced is statistically tied with blanket QI on semantic utility, so do not claim a public utility advantage.
+5. Public LLM utility judge and rewrite diagnostics: give the counterweight. On budget-fixed blind-backstop RAT-Bench, RB-QIG balanced is statistically tied with blanket QI on semantic utility, so do not claim a public utility advantage. Placeholder and fluent rewrite diagnostics improve particular surface issues, but neither establishes public utility superiority over blanket QI.
 6. Blind extractor diagnostics: show that deployment-style extraction can catch privacy risks but remains the bottleneck. On public RAT-Bench, an improved deterministic backstop cheaply raises coverage to 99.6% and cuts RB-QIG balanced deterministic leakage to 5.4% [2.8%, 8.5%]. Under the LLM attacker, blind RB-QIG balanced drops to 6.4% [3.9%, 9.1%] and is statistically tied with blanket QI; on synthetic data, blind RB-QIG preserves 43.3% [35.0%, 51.7%] utility facts at 5.2% [1.7%, 9.7%] oracle-measured risk-weighted leakage.
 7. Budget diagnostics: keep the main paper on RB-QIG balanced. The deterministic public frontier shows the budget knob behaves monotonically in the expected direction, but the first-40 public LLM smoke did not find a better strict or utility-budget frontier point.
 8. Pairwise no-combo ablation: report only as a limitation/diagnostic if space allows. The balanced no-combo variant is identical to balanced RB-QIG on all evaluated datasets, so the current pilot does not isolate the pairwise combination term.

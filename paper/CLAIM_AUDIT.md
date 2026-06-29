@@ -2,7 +2,7 @@
 
 Generated from local CSV/report artifacts. No API calls are made.
 
-Summary: 15/15 audited claim groups have matching paper snippets.
+Summary: 17/17 audited claim groups have matching paper snippets.
 
 | Claim | Description | Paper check | Interpretation |
 | --- | --- | --- | --- |
@@ -17,10 +17,12 @@ Summary: 15/15 audited claim groups have matching paper snippets.
 | C9 | Blind deterministic stress-test reduction and deterministic blanket gap. | PASS | Shows strong direct-to-RB-QIG reduction but deterministic scoring still favors blanket QI. |
 | C10 | Blind LLM-attacker stress test ties RB-QIG with blanket QI. | PASS | This is the strongest deployment-style privacy claim and includes the blanket-tie caveat. |
 | C11 | Public blind utility judge does not support an RB-QIG utility edge. | PASS | Important negative/caveat claim: public utility advantage is not established. |
+| C11b | No-API text-quality audit argues against more phrase-level rewriting. | PASS | This is a no-API spending gate: another phrase-level rewrite needs stronger local evidence before API judging. |
 | C12 | Blind synthetic diagnostic remains a limitation result. | PASS | Supports the limitation paragraph; this should not be framed as solved blind extraction. |
-| C13 | TAB ECHR deterministic screen is cross-domain residual-risk support. | PASS | Supports a second-domain residual-risk diagnostic and an inconclusive TAB legal-utility caveat. |
+| C13 | TAB ECHR deterministic screen is cross-domain residual-risk support. | PASS | Supports a second-domain residual-risk diagnostic and a negative/tied TAB legal-utility caveat. |
 | C14 | Presidio-style pattern baseline is a practical lower-bound diagnostic. | PASS | Supports the practical-baseline caveat without claiming full Presidio coverage. |
 | C15 | Annotation-derived public specificity shows a small RB-QIG edge over blanket placeholders. | PASS | Supports a narrow public utility diagnostic while preserving the LLM-utility caveat. |
+| C16 | Blind mini-attacker check and multi-model agreement preserve qualitative ordering. | PASS | Adds a bounded model-dependence check: absolute leakage changes, but the qualitative ordering is stable. |
 
 ## C1: Controlled synthetic frontier headline.
 
@@ -165,6 +167,20 @@ Evidence:
 - RB-QIG balanced semantic utility: 62.2% [58.8, 65.2]
 - RB-QIG balanced minus blanket semantic utility: -0.4 points [-4.2, 3.4]
 
+## C11b: No-API text-quality audit argues against more phrase-level rewriting.
+
+Paper snippet check: **PASS**
+
+Sources:
+- `results/text_quality_audit_20260628/metrics.csv`
+- `results/text_quality_audit_20260628/correlations.csv`
+
+Evidence:
+- Attr-fluent surface artifact score: 0.42108
+- Attr-fluent hidden-label utility: 77.2%
+- Mean replacement tokens vs utility correlation: -0.312205
+- Generalization change rate vs utility correlation: -0.28792
+
 ## C12: Blind synthetic diagnostic remains a limitation result.
 
 Paper snippet check: **PASS**
@@ -184,17 +200,17 @@ Sources:
 - `results/tab_echr_dev_30/metrics.csv`
 - `results/tab_echr_dev_30/bootstrap_cis.csv`
 - `results/tab_echr_dev_30/bootstrap_contrasts.csv`
-- `results/tab_echr_dev_30/llm_legal_utility_10_bootstrap_cis.csv`
-- `results/tab_echr_dev_30/llm_legal_utility_10_bootstrap_contrasts.csv`
+- `results/tab_echr_dev_30/llm_legal_utility_20_with_b6_bootstrap_cis.csv`
+- `results/tab_echr_dev_30/llm_legal_utility_20_with_b6_bootstrap_contrasts.csv`
 
 Evidence:
 - Direct risk-weighted leakage: 99.8% [99.4, 100.0]
 - RB-QIG balanced risk-weighted leakage: 12.3% [9.2, 15.7]
 - Direct minus RB-QIG balanced: +87.5 points [84.0, 90.6]
 - RB-QIG balanced minus blanket QI: +12.3 points [9.1, 15.8]
-- RB-QIG balanced legal-task utility: 68.0% [62.0, 74.0]
-- Blanket QI legal-task utility: 68.0% [62.0, 74.0]
-- RB-QIG balanced minus blanket legal-task utility: 0.0 points [-10.0, 10.0]
+- RB-QIG balanced legal-task utility: 71.0% [67.0, 75.0]
+- Blanket QI legal-task utility: 73.0% [69.0, 77.0]
+- RB-QIG balanced minus blanket legal-task utility: -2.0 points [-8.0, 4.0]
 
 ## C14: Presidio-style pattern baseline is a practical lower-bound diagnostic.
 
@@ -222,3 +238,23 @@ Sources:
 Evidence:
 - Blind RAT-Bench RB-QIG balanced minus blanket specificity: +6.8 points [4.7, 9.2]
 - TAB RB-QIG balanced minus blanket specificity: +6.2 points [5.5, 6.9]
+
+## C16: Blind mini-attacker check and multi-model agreement preserve qualitative ordering.
+
+Paper snippet check: **PASS**
+
+Sources:
+- `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_attacker_mini20_metrics.csv`
+- `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_mini20_bootstrap_cis.csv`
+- `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/llm_mini20_bootstrap_contrasts.csv`
+- `results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/attacker_agreement_multimodel_summary.csv`
+
+Evidence:
+- Mini direct risk-weighted leakage: 75.0% [60.9, 87.5]
+- Mini RB-QIG balanced risk-weighted leakage: 14.8% [8.2, 21.9]
+- Mini blanket QI risk-weighted leakage: 16.8% [9.0, 25.7]
+- Mini direct minus RB-QIG balanced: +60.2 points [47.2, 72.2]
+- Mini RB-QIG balanced minus blanket QI: -2.0 points [-6.3, 1.1]
+- Nano-vs-mini exact/coarse agreement: 88.9%/82.8%
+- Mini-vs-GPT-5.5 exact/coarse agreement: 83.3%/80.0%
+- Nano-vs-GPT-5.5 exact/coarse agreement: 76.7%/71.9%
