@@ -8,17 +8,17 @@ Summary: 17/17 audited claim groups have matching paper snippets.
 | --- | --- | --- | --- |
 | C1 | Controlled synthetic frontier headline. | PASS | Supports the large utility-preservation claim only in the controlled setting. |
 | C2 | Synthetic RB-QIG utility advantage over blanket redaction. | PASS | This is the strongest utility result and should stay scoped to synthetic utility facts. |
-| C3 | Synthetic LLM utility judge gives only a modest semantic edge. | PASS | Prevents overclaiming from the deterministic synthetic utility metric. |
+| C3 | Utility caveat outside deterministic synthetic facts. | PASS | Prevents overclaiming from the deterministic synthetic utility metric. |
 | C4 | Target-aware RAT-Bench LLM attacker headline. | PASS | Supports residual-risk reduction relative to direct and naive LLM redaction. |
-| C5 | Target-aware paired LLM-attacker reductions and blanket tie. | PASS | The CI crossing zero for RB-QIG minus blanket supports the tied-privacy caveat. |
-| C6 | Difficulty-2 smoke maintains the same qualitative ordering. | PASS | Robustness smoke only; n=30 is not a replacement for the main 100-row table. |
+| C5 | Target-aware paired LLM-attacker reductions and blanket tie. | PASS | Supports the tied-privacy caveat without relying on interval wording in the main paper. |
+| C6 | Public benchmark stress tests are bounded diagnostics. | PASS | Robustness smoke only; n=30 is not a replacement for the main 100-row table. |
 | C7 | Stronger-attacker smoke preserves the main ordering. | PASS | Robustness smoke only; n=20 is intentionally small. |
 | C8 | Blind extractor coverage improves with the v2 backstop. | PASS | Supports the extraction-bottleneck discussion without claiming deployment readiness. |
 | C9 | Blind deterministic stress-test reduction and deterministic blanket gap. | PASS | Shows strong direct-to-RB-QIG reduction but deterministic scoring still favors blanket QI. |
 | C10 | Blind LLM-attacker stress test ties RB-QIG with blanket QI. | PASS | This is the strongest deployment-style privacy claim and includes the blanket-tie caveat. |
 | C11 | Public blind utility judge does not support an RB-QIG utility edge. | PASS | Important negative/caveat claim: public utility advantage is not established. |
 | C11b | No-API text-quality audit argues against more phrase-level rewriting. | PASS | This is a no-API spending gate: another phrase-level rewrite needs stronger local evidence before API judging. |
-| C12 | Blind synthetic diagnostic remains a limitation result. | PASS | Supports the limitation paragraph; this should not be framed as solved blind extraction. |
+| C12 | Blind extraction remains a limitation result. | PASS | Supports the limitation paragraph; this should not be framed as solved blind extraction. |
 | C13 | TAB ECHR deterministic screen is cross-domain residual-risk support. | PASS | Supports a second-domain residual-risk diagnostic and a negative/tied TAB legal-utility caveat. |
 | C14 | Presidio-style pattern baseline is a practical lower-bound diagnostic. | PASS | Supports the practical-baseline caveat without claiming full Presidio coverage. |
 | C15 | Annotation-derived public specificity shows a small RB-QIG edge over blanket placeholders. | PASS | Supports a narrow public utility diagnostic while preserving the LLM-utility caveat. |
@@ -47,7 +47,7 @@ Sources:
 Evidence:
 - RB-QIG balanced minus blanket utility facts: +28.3 points [25.2, 31.6]
 
-## C3: Synthetic LLM utility judge gives only a modest semantic edge.
+## C3: Utility caveat outside deterministic synthetic facts.
 
 Paper snippet check: **PASS**
 
@@ -86,7 +86,7 @@ Evidence:
 - Naive LLM sanitizer minus RB-QIG balanced: +40.2 points [33.1, 47.1]
 - RB-QIG balanced minus blanket QI: +0.5 points [-2.6, 3.6]
 
-## C6: Difficulty-2 smoke maintains the same qualitative ordering.
+## C6: Public benchmark stress tests are bounded diagnostics.
 
 Paper snippet check: **PASS**
 
@@ -181,7 +181,7 @@ Evidence:
 - Mean replacement tokens vs utility correlation: -0.312205
 - Generalization change rate vs utility correlation: -0.28792
 
-## C12: Blind synthetic diagnostic remains a limitation result.
+## C12: Blind extraction remains a limitation result.
 
 Paper snippet check: **PASS**
 

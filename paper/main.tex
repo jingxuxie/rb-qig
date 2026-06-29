@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{array}
+\usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{lineno}
 
@@ -88,22 +89,11 @@ re-identification risk and utility preservation
 
 \begin{figure}[t]
 \centering
-\fbox{\begin{minipage}{0.94\linewidth}
-\small
-\textbf{Figure 1 placeholder: one-page visual overview.}
-Plot this as a three-panel schematic.
-\textbf{Left:} ``Direct PII removal'' removes a name/email but leaves indirect
-cues such as age, rare job, city, family relation, date, and condition.
-\textbf{Middle:} RB-QIG pipeline: candidate QI extraction $\rightarrow$
-risk/utility scoring $\rightarrow$ generalization ladder $\rightarrow$
-budgeted span replacements and audit log.
-\textbf{Right:} result summary with three visual takeaways: direct redaction
-has high residual leakage; blanket redaction has low leakage but low utility;
-RB-QIG is the controlled middle ground. Use icons rather than dense numbers.
-\end{minipage}}
-\caption{Conceptual overview of RB-QIG. The final version should be a visual
-cartoon that lets a reader understand the problem, the method, and the main
-result before reading the experiments.}
+\includegraphics[width=\linewidth]{figure/figure_1.png}
+\caption{Conceptual overview of RB-QIG. Direct PII removal can leave indirect
+quasi-identifier clues; RB-QIG extracts candidate QIs, scores privacy risk and
+utility, and applies budgeted generalization so high-risk spans are coarsened
+rather than always left intact or blanket-redacted.}
 \label{fig:overview}
 \end{figure}
 
@@ -137,13 +127,8 @@ sensitive attributes remain inferable from relational, lexical, and contextual
 cues.
 \end{itemize}
 
-The paper's claim is intentionally bounded. RB-QIG is not a legal
-anonymization procedure and does not dominate blanket redaction on privacy.
-Its value is that it makes the residual inference problem measurable and gives
-a practical, auditable transformation knob between direct redaction and
-semantic erasure.
 
-\section{Background and Threat Model}
+\section{Background}
 
 \paragraph{Direct identifiers, quasi-identifiers, and sensitive attributes.}
 We use \emph{direct identifier} for a span that directly identifies a person or
@@ -291,21 +276,12 @@ appendix contains the detailed numeric tables.
 
 \begin{figure}[t]
 \centering
-\fbox{\begin{minipage}{0.94\linewidth}
-\small
-\textbf{Figure 2 placeholder: privacy--utility frontier.}
-Plot a scatter/line chart. X-axis: risk-weighted leakage (lower is better).
-Y-axis: utility-fact preservation or semantic utility (higher is better).
-Panel A: synthetic controlled benchmark with points for Direct, Blanket QI,
-RB-QIG strict, RB-QIG balanced, and RB-QIG utility. Connect the RB-QIG budget
-points to show the policy frontier. Panel B: blind public RAT-Bench with
-Direct, Blanket QI, and RB-QIG balanced, using LLM semantic utility on the
-Y-axis. Annotate the key message: the large utility win is controlled; public
-utility remains tied with blanket redaction.
-\end{minipage}}
-\caption{Recommended replacement for several numeric tables: a visual
-privacy--utility frontier showing where RB-QIG sits between direct redaction
-and blanket redaction.}
+\includegraphics[width=\linewidth]{figure/figure_2.png}
+\caption{Privacy--utility frontier. Panel A uses deterministic synthetic
+metrics: direct redaction preserves utility facts but leaks QIs, blanket QI
+redaction removes measured leakage with lower utility, and RB-QIG budgets
+trace an intermediate frontier. Panel B uses blind RAT-Bench LLM attacker and
+utility judges; RB-QIG and blanket redaction are close on public utility.}
 \label{fig:frontier}
 \end{figure}
 
@@ -314,9 +290,10 @@ and blanket redaction.}
 \begin{table}[t]
 \centering
 \small
-\caption{Headline result map. Detailed metrics and confidence intervals should
-remain in appendix tables; the main text focuses on the interpretation.}
+\caption{Main results.}
 \label{tab:headline}
+\begingroup
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{p{0.25\linewidth}p{0.34\linewidth}p{0.32\linewidth}}
 \toprule
 Question & Main observation & Interpretation \\
@@ -338,6 +315,7 @@ GPT-5.5 increases absolute leakage, but the method ordering remains. &
 Residual risk is real; robust evaluation needs strong attackers. \\
 \bottomrule
 \end{tabular}
+\endgroup
 \end{table}
 
 \paragraph{Result 1: direct PII redaction is the wrong endpoint.}
@@ -378,18 +356,11 @@ is not an anonymization guarantee.
 
 \begin{figure}[t]
 \centering
-\fbox{\begin{minipage}{0.94\linewidth}
-\small
-\textbf{Figure 3 placeholder: attacker robustness.}
-Create a grouped bar chart. X-axis groups: Direct, Blanket QI, RB-QIG
-balanced. Bars/colors: low-cost attacker, mini attacker, GPT-5.5 attacker.
-Y-axis: risk-weighted leakage. Use the blind public setting when available.
-Annotate two messages: (1) stronger attackers increase absolute leakage;
-(2) direct redaction remains the worst method, while RB-QIG and blanket QI are
-close. Include bootstrap intervals as error bars if space permits.
-\end{minipage}}
-\caption{Recommended robustness figure: attacker strength affects absolute
-leakage, but the qualitative ordering remains stable.}
+\includegraphics[width=\linewidth]{figure/figure_3.png}
+\caption{Attacker robustness on blind RAT-Bench. Bars are for
+low-cost, mini, and GPT-5.5 attackers with sample sizes shown in the legend.
+Stronger attackers raise absolute leakage, but direct redaction remains much
+leakier than RB-QIG or blanket QI redaction.}
 \label{fig:robustness}
 \end{figure}
 
@@ -403,18 +374,11 @@ depending on the recipient, task, and review process.
 
 \begin{figure}[t]
 \centering
-\fbox{\begin{minipage}{0.94\linewidth}
-\small
-\textbf{Figure 4 placeholder: budget frontier and domain transfer.}
-Plot two small panels, one for blind RAT-Bench and one for TAB. X-axis:
-deterministic risk-weighted leakage. Y-axis: annotation-derived QI specificity.
-Points: RB-QIG budgets 2, 4, and 6, plus Blanket QI. Label the points directly.
-The figure should show that increasing the budget moves the method toward
-higher specificity and higher leakage, while Blanket QI is low-leakage but
-low-specificity. This can replace a dense paragraph of budget numbers.
-\end{minipage}}
-\caption{Recommended budget figure: RB-QIG exposes a tunable privacy--utility
-control rather than a single fixed sanitizer.}
+\includegraphics[width=\linewidth]{figure/figure_4.png}
+\caption{Budget frontier and domain transfer. Deterministic budget sweeps on
+blind RAT-Bench and TAB show that looser RB-QIG budgets preserve more
+annotation-derived QI specificity at higher leakage, while blanket QI
+redaction stays low-specificity.}
 \label{fig:budget}
 \end{figure}
 
@@ -440,6 +404,7 @@ incomplete privacy metric.
 \centering
 \begingroup
 \setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.5}
 \footnotesize
 \caption{Representative residual failure categories.}
 \label{tab:failure-categories}
@@ -459,14 +424,10 @@ Placeholder cue & typed demographic placeholder in context & the placeholder its
 
 \section{Limitations and Ethics}
 
-RB-QIG is not an anonymization guarantee and should not be used as a legal or
-compliance claim. The strongest utility result is synthetic and controlled;
-public utility preservation remains mixed. The target-aware RAT-Bench setting
-isolates transformation behavior under known attributes, but it is not a
-deployment scenario. The blind extractor and deterministic backstop improve
+The strongest utility result is synthetic and controlled;
+public utility preservation remains mixed. The blind extractor and deterministic backstop improve
 coverage, yet blind QI extraction and task-aware rewriting remain open
-problems. LLM attackers and utility judges are useful stress tests, but they
-are model-dependent and may under- or over-estimate real adversaries or human
+problems. LLM attackers and utility judges are model-dependent and may under- or over-estimate real adversaries or human
 utility needs. All experiments use synthetic or public benchmark data. We do
 not attempt to identify real people or infer private attributes about
 individuals.
@@ -484,27 +445,6 @@ redaction; and blind, task-aware utility preservation remains the main open
 problem. Responsible data enablement should therefore evaluate what capable
 models can still infer, not only what explicit PII spans were removed.
 
-\appendix
-
-\section{Detailed Numeric Tables}
-\label{app:detailed-tables}
-
-The main text intentionally avoids listing every metric inline. Detailed
-results generated from the repository artifacts are reproduced below.
-
-\input{generated/tables.tex}
-
-\section{Reproducibility Notes}
-
-The artifact package is generated from local scripts under \path{src/} and
-public/synthetic data only. The main synthetic control is
-\path{results/synthetic_100/}; the target-aware public RAT-Bench pilot is
-\path{results/ratbench_d1_api_100/}; the blind public stress test is
-\path{results/ratbench_d1_blind_backstop_v2_budgetfix_api_100/}; and the TAB
-screen is \path{results/tab_echr_dev_30/}. Bootstrap intervals are generated
-by \path{src/bootstrap_results.py}, and paper tables by
-\path{src/make_paper_tables.py}. All API calls use public or synthetic
-benchmark records.
 
 \bibliographystyle{colm2026_conference}
 \bibliography{references}
